@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIKME Couture - HOME FOR ALL UNIQUE OUTFITS, WEDDING DRESS, KIDS OUTFITS</title>
+    <link rel="icon" href="files/favicon2.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .collection-card {
+            transition: all 0.3s ease;
+        }
+        
+        .collection-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="files/Logo.png" alt="UNIKME COUTURE Logo" width="50" class="me-2">
+                <a href="#" class="title-font text-2xl font-bold">UNIKME COUTURE</a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <div class="dropdown relative">
+                    <a href="#" class="nav-link font-medium hover:text-gray-600">Shop <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-white py-2 w-48 shadow-lg rounded-md mt-2">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">New Arrivals</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Women</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Men</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Accessories</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-link font-medium hover:text-gray-600">Collections</a>
+                <a href="#" class="nav-link font-medium hover:text-gray-600">About</a>
+                <a href="#" class="nav-link font-medium hover:text-gray-600">Journal</a>
+                <a href="#" class="nav-link font-medium hover:text-gray-600">Contact</a>
+            </nav>
+            
+            <!--             <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-gray-600"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-gray-600"><i class="fas fa-user"></i></a>
+                <a href="#" class="hover:text-gray-600"><i class="fas fa-shopping-bag"></i></a>
+                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div> -->
+
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md" id="mobile-menu">
+            <a href="#" class="block py-2 font-medium">Shop</a>
+            <a href="#" class="block py-2 font-medium">Collections</a>
+            <a href="#" class="block py-2 font-medium">About</a>
+            <a href="#" class="block py-2 font-medium">Journal</a>
+            <a href="#" class="block py-2 font-medium">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center justify-center text-center text-white pt-16">
+        <div class="px-4">
+            <h1 class="title-font text-4xl md:text-6xl font-bold mb-6">Elevate Your Style</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Premium Nigerian fashion that celebrates African heritage with contemporary designs</p>
+            <a href="#" class="bg-black hover:bg-gray-800 text-white px-8 py-3 inline-block transition duration-300">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="title-font text-3xl md:text-4xl text-center mb-12">Our Collections</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="collection-card">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="files/slide1.jpg" alt="Women's Collection" class="w-full h-100 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <a href="#" class="text-white border border-white px-6 py-2 opacity-0 hover:opacity-100 transition duration-300">View Collection</a>
+                        </div>
+                    </div>
+                    <h3 class="title-font text-xl mb-2">Wedding Dresses</h3>
+                    <p class="text-gray-600">Elegant designs inspired by Nigerian culture</p>
+                </div>
+                
+                <!-- Collection 2 -->
+                <div class="collection-card">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="files/slide3.jpg" alt="Men's Collection" class="w-full h-100 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <a href="#" class="text-white border border-white px-6 py-2 opacity-0 hover:opacity-100 transition duration-300">View Collection</a>
+                        </div>
+                    </div>
+                    <h3 class="title-font text-xl mb-2">Kids Outfits</h3>
+                    <p class="text-gray-600">Sophisticated styles with African influences</p>
+                </div>
+                
+                <!-- Collection 3 -->
+                <div class="collection-card">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="files/slide2.jpg" alt="Accessories" class="w-full h-100 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <a href="#" class="text-white border border-white px-6 py-2 opacity-0 hover:opacity-100 transition duration-300">View Collection</a>
+                        </div>
+                    </div>
+                    <h3 class="title-font text-xl mb-2">Unique Outfits</h3>
+                    <p class="text-gray-600">Handcrafted pieces to complete your look</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About AfriKouture" class="w-full h-auto">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="title-font text-3xl md:text-4xl mb-6">Our Story</h2>
+                <p class="text-gray-600 mb-6">Founded in Lagos, Unikme Couture is a celebration of Nigerian craftsmanship and contemporary design. We blend traditional African textiles with modern silhouettes to create unique pieces that tell a story.</p>
+                <p class="text-gray-600 mb-8">Each garment is carefully crafted by skilled artisans using ethically sourced materials, supporting local communities while delivering exceptional quality to our customers worldwide.</p>
+                <a href="#" class="border border-black text-black hover:bg-black hover:text-white px-8 py-3 inline-block transition duration-300">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="title-font text-3xl md:text-4xl text-center mb-12">Featured Products</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="group">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1479&q=80" alt="Ankara Dress" class="w-full h-80 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition duration-300"></div>
+                        <button class="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition duration-300">Quick View</button>
+                    </div>
+                    <h3 class="font-medium mb-1">Wedding Dresses</h3>
+                    <p class="text-gray-600 mb-2">₦25,000</p>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="group">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Men's Agbada" class="w-full h-80 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition duration-300"></div>
+                        <button class="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition duration-300">Quick View</button>
+                    </div>
+                    <h3 class="font-medium mb-1">Kids Outfits</h3>
+                    <p class="text-gray-600 mb-2">₦45,000</p>
+                </div>
+                
+                
+                <!-- Product 4 -->
+                <div class="group">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Ankara Top" class="w-full h-80 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition duration-300"></div>
+                        <button class="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition duration-300">Quick View</button>
+                    </div>
+                    <h3 class="font-medium mb-1">Ankara Wrap Top</h3>
+                    <p class="text-gray-600 mb-2">₦18,000</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="border border-black text-black hover:bg-black hover:text-white px-8 py-3 inline-block transition duration-300">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 px-4 bg-black text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="title-font text-3xl md:text-4xl mb-6">Join Our Community</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive offers, styling tips, and updates on new collections.</p>
+            
+            <form class="flex flex-col sm:flex-row max-w-md mx-auto sm:max-w-xl">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-black focus:outline-none">
+                <button type="submit" class="bg-white text-black hover:bg-gray-200 px-6 py-3 transition duration-300">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="title-font text-xl font-bold mb-4">Unikme Couture</h3>
+                    <p class="text-gray-600 mb-4">Premium Nigerian fashion celebrating African heritage with contemporary designs.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/unikme_couture/" class="text-gray-600 hover:text-black"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-black">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Women</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Men</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Accessories</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-black">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Journal</a></li>
+                         <li><a href="#" class="text-gray-600 hover:text-black">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <address class="text-gray-600 not-italic">
+                        <p class="mb-2">123 Fashion Avenue</p>
+                        <p class="mb-2">Ikorodu, Lagos</p>
+                        <p class="mb-2">Nigeria</p>
+                        <p class="mb-2">+234 812 345 6789</p>
+                        <p>hello@UnikmeCouture.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 mb-4 md:mb-0">© 2025 Unikme Couture. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-black">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-black">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
