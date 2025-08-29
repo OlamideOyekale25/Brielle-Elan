@@ -1,4 +1,4 @@
-# UNIKME Couture Website
+# Brielle Elan Website
 
 A premium Nigerian fashion brand website celebrating African heritage with contemporary designs.
 
@@ -179,3 +179,4 @@ For technical issues or business inquiries:
 ---
 
 *Built with passion for African fashion and modern web technologies.*
+
