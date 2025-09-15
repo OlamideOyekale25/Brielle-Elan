@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Guide | Brielle Élan</title>
+    <link rel="icon" href="files/favicon2.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        body { font-family: 'plus jakarta', sans-serif; }
+        .title-font { font-family: 'Playfair Display', serif; }
+
+        /* Nav link underline animation (copied from index.html) */
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Show shop dropdown on hover/focus (copied from index.html) */
+        .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="w-full bg-white z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="files/Logo.png" alt="Brielle Élan Logo" width="50" class="me-2">
+                <a href="index.html" class="title-font text-2xl font-bold">Brielle Élan</a>
+            </div>
+            <nav class="hidden md:flex space-x-8 ml-auto pr-6 md:pr-12 mr-6 md:mr-12">
+                <div class="dropdown relative">
+                    <a href="#" class="nav-link font-medium hover:text-gray-600">Shop <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-white py-2 w-48 shadow-lg rounded-md mt-2">
+                        <a href="price-guide.html" class="block px-4 py-2 hover:bg-gray-100">Price Guide</a>
+                        <a href="Consultation.html" class="block px-4 py-2 hover:bg-gray-100">Book a Consultation</a>
+                    </div>
+                </div>
+                <a href="our-process.html" class="nav-link font-medium hover:text-gray-600">Our process</a>
+                <a href="about-us.html" class="nav-link font-medium hover:text-gray-600">About us</a>
+                <a href="faq.html" class="nav-link font-medium hover:text-gray-600">FAQ</a>
+                <a href="contact.html" class="nav-link font-medium hover:text-gray-600">Contact us</a>
+            </nav>
+            <div class="flex items-center">
+                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md transition-all duration-300 transform scale-95 opacity-0" id="mobile-menu">
+            <a href="index.html" class="block py-2 font-medium">Home</a>
+            <a href="our-process.html" class="block py-2 font-medium">Our process</a>
+            <a href="price-guide.html" class="block py-2 font-medium">Price Guide</a>
+            <a href="Consultation.html" class="block py-2 font-medium">Book a Consultation</a>
+            <a href="about-us.html" class="block py-2 font-medium">About us</a>
+            <a href="faq.html" class="block py-2 font-medium">FAQ</a>
+            <a href="contact.html" class="block py-2 font-medium">Contact us</a>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="bg-black text-white py-16 text-center">
+        <h1 class="title-font text-4xl md:text-6xl font-bold mb-4">Price Guide</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto">Explore our transparent pricing for custom outfits, wedding dresses, and more. All prices are starting points and may vary based on fabric, embellishments, and design complexity.</p>
+    </section>
+
+    <!-- Price Table with Image Side-by-Side -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 w-full mb-8 md:mb-0 flex justify-center">
+                <img src="files/IMG_3120.JPG" alt="Bridal Gown"  class="w-[400px] h-[400px] md:w-[500px] md:h-[500px] object-cover shadow-2xl" style="object-position: center; clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%); border-radius: 60px;" />
+            </div>
+            <div class="md:w-1/2 w-full ">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg shadow-lg">
+                        <thead>
+                            <tr class="bg-black text-white">
+                                <th class="py-4 px-6 text-left text-lg font-bold">Service</th>
+                                <th class="py-4 px-6 text-left text-lg font-bold">Starting Price (₦)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-4 px-6">Wedding dress (Fabric inclusive)</td>
+                                <td class="py-4 px-6">1,800,000</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-4 px-6">Civil wedding dress (Fabric inclusive)</td>
+                                <td class="py-4 px-6">800,000</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-4 px-6">Bridesmaid Dress (Fabric inclusive)</td>
+                                <td class="py-4 px-6">145,000</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-4 px-6">Glam dress (Fabric inclusive)</td>
+                                <td class="py-4 px-6">1,200,000</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-4 px-6">Bridal robe (Fabric inclusive)</td>
+                                <td class="py-4 px-6">500,000</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-4 px-6">Bridal shower dress (Fabric inclusive)</td>
+                                <td class="py-4 px-6">250,000</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6">Prom dress (Fabric inclusive)</td>
+                                <td class="py-4 px-6">650,000</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-4 px-6">Reception outfit (Fabric inclusive)</td>
+                                <td class="py-4 px-6">650,000</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6">Aso-Oke traditional attire (Without Fabric)</td>
+                                <td class="py-4 px-6">450,000</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-4 px-6">George and other tribe traditional attire (Without Fabric)</td>
+                                <td class="py-4 px-6">400,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-gray-600 mt-8 text-center">For a detailed quote, please <a href="contact.html" class="text-black underline hover:text-gray-700">contact us</a> or <a href="Consultation.html" class="text-blue-500 underline hover:text-blue-700">book a consultation.</a></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- What's Included Section -->
+    <section class="py-20 px-4 bg-black">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 w-full text-white order-first md:order-none">
+                <h2 class="title-font text-2xl md:text-3xl font-extrabold mb-8">WHAT’S INCLUDED:</h2>
+                <ul class="list-disc pl-6 space-y-4 text-lg">
+                    <li>Personalized consultation to discuss your vision and preferences.</li>
+                    <li>Bespoke design tailored to your specifications.</li>
+                    <li>High-quality fabric selection and customization.</li>
+                    <li>Multiple fittings to ensure the perfect fit.</li>
+                    <li>Detailed production timeline and progress updates.</li>
+                </ul>
+                <p class="mt-8 text-base italic text-gray-300">* Please note: All prices listed are starting prices. Embellishments, design variations, and fabric choices may affect the final price.</p>
+            </div>
+            <div class="md:w-1/2 w-full flex justify-center">
+                <img src="files/IMG_1424.JPG" alt="Bridal Gown" class="w-[400px] h-[400px] md:w-[500px] md:h-[500px] object-cover shadow-2xl" style="object-position: center; clip-path: ellipse(50% 60% at 50% 40%); border-radius: 50% 50% 50% 0;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="title-font text-xl font-bold mb-4">BRIELLE ÉLAN</h3>
+                    <p class="text-gray-600 mb-4">Brielle Élan is a luxury women’s fashion brand inspired by the women who wear our creations.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/unikme_couture/" class="text-gray-600 hover:text-black"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-black">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Women</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Men</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Accessories</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Sale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-black">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Journal</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <address class="text-gray-600 not-italic">
+                        <p class="mb-2">123 Fashion Avenue</p>
+                        <p class="mb-2">Ikorodu, Lagos</p>
+                        <p class="mb-2">Nigeria</p>
+                        <p class="mb-2">+234 812 345 6789</p>
+                        <p>hello@UnikmeCouture.com</p>
+                    </address>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 mb-4 md:mb-0">© 2025 Brielle Élan. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-black">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-black">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle with animation
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('scale-95', 'opacity-0');
+                        mobileMenu.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                } else {
+                    mobileMenu.classList.remove('scale-100', 'opacity-100');
+                    mobileMenu.classList.add('scale-95', 'opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

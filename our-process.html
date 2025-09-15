@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Our Process | Brielle Élan</title>
+	<link rel="icon" href="files/favicon2.png" type="image/png">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+		body { font-family: 'plus jakarta', sans-serif; }
+		.title-font { font-family: 'Playfair Display', serif; }
+
+		/* Nav link underline animation (copied from index.html) */
+		.nav-link::after {
+			content: '';
+			display: block;
+			width: 0;
+			height: 2px;
+			background: #000;
+			transition: width 0.3s;
+		}
+		.nav-link:hover::after {
+			width: 100%;
+		}
+		.faq-question { cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+		.faq-icon { font-size: 1.5rem; transition: color 0.2s; }
+		.faq-answer {
+			max-height: 0;
+			overflow: hidden;
+			opacity: 0;
+			transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+		}
+		.faq-item.open .faq-answer {
+			max-height: 500px;
+			opacity: 1;
+			transition-delay: 0.15s;
+		}
+		.faq-item.open .faq-icon.plus { display: none; }
+		.faq-item:not(.open) .faq-icon.minus { display: none; }
+
+		.dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu {
+            display: block;
+        }
+	</style>
+</head>
+<body class="bg-white text-gray-800">
+	<!-- Header/Navigation -->
+	<header class="fixed w-full bg-white z-50 shadow-sm">
+		<div class="container mx-auto px-4 py-4 flex items-center">
+			<div class="flex items-center">
+				<img src="files/Logo.png" alt="Brielle Élan Logo" width="50" class="me-2">
+				<a href="index.html" class="title-font text-2xl font-bold">Brielle Élan</a>
+			</div>
+			
+			<nav class="hidden md:flex space-x-8 ml-auto pr-6 md:pr-12 mr-6 md:mr-12">
+				<div class="dropdown relative">
+					<a href="#" class="nav-link font-medium hover:text-gray-600">Shop <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+					<div class="dropdown-menu absolute hidden bg-white py-2 w-48 shadow-lg rounded-md mt-2">
+						<a href="price-guide.html" class="block px-4 py-2 hover:bg-gray-100">Price Guide</a>
+						<a href="Consultation.html" class="block px-4 py-2 hover:bg-gray-100">Book a Consultation</a>
+					</div>
+				</div>
+				<a href="our-process.html" class="nav-link font-medium hover:text-gray-600">Our process</a>
+				<a href="about-us.html" class="nav-link font-medium hover:text-gray-600">About us</a>
+				<a href="faq.html" class="nav-link font-medium hover:text-gray-600">FAQ</a>
+				<a href="contact.html" class="nav-link font-medium hover:text-gray-600">Contact us</a>
+			</nav>
+			
+			<div class="flex items-center">
+				<button class="md:hidden focus:outline-none absolute right-6 top-4" id="mobile-menu-button" aria-label="Toggle menu">
+					<i class="fas fa-bars text-xl"></i>
+				</button>
+			</div>
+		</div>
+
+		
+		<!-- Mobile Menu -->
+	    <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md transition-all duration-300 transform scale-95 opacity-0" id="mobile-menu">
+			<a href="index.html" class="block py-2 font-medium">Home</a>
+			<a href="our-process.html" class="block py-2 font-medium">Our process</a>
+			<a href="price-guide.html" class="block py-2 font-medium">Price Guide</a>
+			<a href="Consultation.html" class="block py-2 font-medium">Book a Consultation</a>
+			<a href="about-us.html" class="block py-2 font-medium">About us</a>
+			<a href="faq.html" class="block py-2 font-medium">FAQ</a>
+			<a href="contact.html" class="block py-2 font-medium">Contact us</a>
+		</div>
+	</header>
+
+<!-- Hero Section -->
+	<section class="relative flex items-center justify-center text-center text-white h-[40vh] md:h-[50vh] bg-black">
+		   <div class="z-10 px-4">
+			   <h1 class="title-font text-2xl md:text-4xl font-bold mb-4">Our Process</h1>
+			   <p class="text-lg md:text-xl max-w-6xl mx-auto">At Brielle Élan, we provide a refined, tailored experience that begins with consultation and flows seamlessly into creation. Every stage is carefully designed to transform your vision into an enduring masterpiece, showcasing our commitment to precision and uncompromising excellence.</p>
+		   </div>
+	</section>
+
+    <section id="Consultation Process" class="py-16 px-4 bg-white">
+		<div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+			<div class="md:w-1/2 order-2 md:order-1">
+				<h2 class="text-2xl md:text-2xl font-bold mb-6" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">CONSULTATION PROCESS</h2>
+				<!--h3 class="text-xl font-semibold mb-2">- Oyeyemi Oyekale</h3-->
+				<h3 class="font-semibold mb-2">1. Initial Inquiry:</h3>
+				<p class="mb-4 text-md">Begin your journey with us by reaching out through our website or contact form to schedule an exclusive consultation.</p>
+
+				<h3 class="font-semibold mb-2">2. Consultation fee:</h3>
+				<p class="mb-4 text-md">A non-refundable premium consultation fee of #55,000 Naira is required. This investment secures your bespoke experience, guaranteeing dedicated personalization, and is applied independently of your final purchase.</p>
+
+				<h3 class="font-semibold mb-2">3. Personal Consultation:</h3>
+				<p class="mb-3 text-md"><strong>In-Person:</strong> Experience the luxury of a face-to-face meeting where we delve into your vision and preferences, and take precise measurements.</p>
+				<p class="mb-3 text-md"><strong>Virtual:</strong> Connect with us via a sophisticated video call to discuss your aspirations and requirements, with detailed measurement guides provided for accuracy.</p>
+				<p class="mb-3 text-md">This consultation usually lasts one hour. However, should you require more than one hour, we strongly advise you to inform your relationship manager (which we will provide) before the consultation slot is allotted to you. Please note that extensions beyond one hour will be billed accordingly.</p>
+				<p class="mb-4 text-md"><strong>Reschedule:</strong> Should you wish to reschedule, we require a minimum of 24 hours notice which will enable us to guarantee another slot immediately.</p>
+
+				<h3 class="font-semibold mb-2">4. Design Proposal & Quotation:</h3>
+				<p class="mb-4 text-md">Step into the creative journey as we shape unique design concepts and discuss fabric selections. Within 72 hours, you will receive a personalized sketch and proposal crafted from our consultation. Each consultation fee covers up to two rounds of design revisions.</p>
+
+				<h3 class="font-semibold mb-2">5. Completion:</h3>
+				<p class="mb-4 text-md">Upon your approval of the design and quotation, we will provide a detailed timeline for the creation of your bespoke garment, ensuring transparency and anticipation for the final masterpiece.</p>
+			</div>
+			<div class="md:w-1/2 order-1 md:order-2 mb-8 md:mb-0 flex justify-center">
+				<img src="files/slide6.jpg" alt="Bridal Gown" class="object-cover w-[400px] h-[500px] md:w-[500px] md:h-[600px] bg-black shadow-2xl" style="object-position: center; border-radius: 500px 500px 0 0;" />
+			</div>
+		</div>
+	</section>
+    
+	<section id="Production Process" class="py-16 px-4 bg-white">
+				<div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+			<div class="md:w-1/2 mb-8 md:mb-0 flex justify-center">
+				<img src="files/IMG_2732.JPG" alt="Bridal Gown" class="object-cover w-[400px] h-[500px] md:w-[500px] md:h-[600px] bg-black shadow-2xl" style="object-position: center; border-radius: 500px 500px 0 0;" />
+			</div>
+			<div class="md:w-1/2">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">PRODUCTION PROCESS</h2>
+				<p class="mb-4 text-lg">Our vision is to become a global symbol of luxury couture, redefining bridal and eveningwear with unparalleled artistry, innovation, and an unwavering commitment to individuality.</p>
+			</div>
+		</div>
+	</section>
+    

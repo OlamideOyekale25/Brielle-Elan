@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Consultation | Brielle Élan</title>
+    <link rel="icon" href="files/favicon2.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        body { font-family: 'plus jakarta', sans-serif; }
+        .title-font { font-family: 'Playfair Display', serif; }
+
+        /* Nav link underline animation */
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Dropdown hover */
+        .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu { display: block; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header/Navigation (same as index) -->
+    <header class="fixed w-full bg-white z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center">
+            <div class="flex items-center">
+                <img src="files/Logo.png" alt="Brielle Élan Logo" width="50" class="me-2">
+                <a href="#" class="title-font text-2xl font-bold">Brielle Élan</a>
+            </div>
+
+            <nav class="hidden md:flex space-x-8 ml-auto pr-6 md:pr-12 mr-6 md:mr-12">
+                <div class="dropdown relative">
+                    <a href="#" class="nav-link font-medium hover:text-gray-600">Shop <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-white py-2 w-48 shadow-lg rounded-md mt-2">
+                        <a href="price-guide.html" class="block px-4 py-2 hover:bg-gray-100">Price Guide</a>
+                        <a href="Consultation.html" class="block px-4 py-2 hover:bg-gray-100">Book a Consultation</a>
+                    </div>
+                </div>
+                <a href="our-process.html" class="nav-link font-medium hover:text-gray-600">Our process</a>
+                <a href="about-us.html" class="nav-link font-medium hover:text-gray-600">About us</a>
+                <a href="faq.html" class="nav-link font-medium hover:text-gray-600">FAQ</a>
+                <a href="contact.html" class="nav-link font-medium hover:text-gray-600">Contact us</a>
+            </nav>
+
+            <div class="flex items-center">
+                <button class="md:hidden focus:outline-none absolute right-6 top-4" id="mobile-menu-button" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md transition-all duration-300 transform scale-95 opacity-0" id="mobile-menu">
+            <a href="index.html" class="block py-2 font-medium">Home</a>
+            <a href="price-guide.html" class="block py-2 font-medium">Price Guide</a>
+            <a href="Consultation.html" class="block py-2 font-medium">Book a Consultation</a>
+            <a href="about-us.html" class="block py-2 font-medium">About us</a>
+            <a href="faq.html" class="block py-2 font-medium">FAQ</a>
+            <a href="contact.html" class="block py-2 font-medium">Contact us</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="pt-28 relative overflow-hidden">
+        <video autoplay muted loop id="myVideo" class="absolute inset-0 w-full h-full object-cover">
+            <source src="./files/video q.mp4" type="video/mp4">
+         </video>
+        <div class="container mx-auto px-4 py-16 text-center relative z-10">
+            <h1 class="title-font text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-md">Book a Consultation</h1>
+            <p class="max-w-2xl mx-auto text-lg text-white opacity-90 drop-shadow-sm">Schedule a personalized consultation with our head designer to discuss fabrics, measurements, timelines and pricing. Select your preferred date and service below.</p>
+        </div>
+    </section>
+
+    <!-- Booking form + Info -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Form -->
+            <div class="md:col-span-2 bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold mb-4">Book Your Appointment</h2>
+                <form id="booking-form" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" name="name" id="name" placeholder="Full name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                        <input type="email" name="email" id="email" placeholder="Email address" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="tel" name="phone" id="phone" placeholder="Phone number" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                        <select name="service" id="service" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                            <option value="">Select service</option>
+                            <option>Bridal - Full Consultation</option>
+                            <option>Bridal - Quick Consultation</option>
+                            <option>Eveningwear / Couture</option>
+                            <option>Kids & Flower Girls</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="date" name="date" id="date" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                        <input type="time" name="time" id="time" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                    </div>
+
+                    <textarea name="message" id="message" rows="5" placeholder="Tell us about your vision, fabric preferences, or event details" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none"></textarea>
+
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent" class="text-sm text-gray-600">I agree to be contacted about this appointment.</label>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <button type="submit" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition">Request Appointment</button>
+                        <button type="reset" class="text-gray-700 px-4 py-2 rounded border">Reset</button>
+                    </div>
+
+                    <p id="form-success" class="text-green-600 mt-4 hidden">Thanks — your request was received. We'll contact you to confirm the appointment.</p>
+                </form>
+            </div>
+
+            <!-- Side info -->
+            <aside class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                <h3 class="text-xl font-bold mb-3">What to expect</h3>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li>30–60 minute in-person or virtual consultation.</li>
+                    <li>Discussion of designs, fabrics and timelines.</li>
+                    <li>Estimated pricing and next steps provided.</li>
+                    <li>Bring inspiration images and any fabric swatches.</li>
+                </ul>
+
+                <div class="mt-6">
+                    <h4 class="font-semibold">Location</h4>
+                    <p class="text-gray-600">By appointment only — address shared after booking.</p>
+                </div>
+
+                <div class="mt-6">
+                    <h4 class="font-semibold">Contact</h4>
+                    <p class="text-gray-600">brielleelan@gmail.com<br>+234 707 894 8911</p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Small FAQ -->
+    <section class="py-12 px-4 bg-white">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="title-font text-2xl font-bold mb-6">Common Questions</h2>
+            <div class="space-y-4">
+                <div>
+                    <h4 class="font-semibold">How soon can I schedule a consultation?</h4>
+                    <p class="text-gray-600">We typically schedule consultations within 1–2 weeks depending on availability.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Is there a consultation fee?</h4>
+                    <p class="text-gray-600">Some consultations require a refundable booking fee; we'll notify you during confirmation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="title-font text-xl font-bold mb-4">BRIELLE ÉLAN</h3>
+                    <p class="text-gray-600 mb-4">Brielle Élan is a luxury women’s fashion brand inspired by the women who wear our creations.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-black">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Women</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Men</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about-us.html" class="text-gray-600 hover:text-black">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Journal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <address class="text-gray-600 not-italic">
+                        <p class="mb-2">123 Fashion Avenue</p>
+                        <p class="mb-2">Ikorodu, Lagos</p>
+                        <p class="mb-2">+234 707 894 8911</p>
+                        <p>brielleelan@gmail.com</p>
+                    </address>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-12 pt-8 text-center">
+                <p class="text-gray-600">© 2025 Brielle Élan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('scale-95', 'opacity-0');
+                        mobileMenu.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                } else {
+                    mobileMenu.classList.remove('scale-100', 'opacity-100');
+                    mobileMenu.classList.add('scale-95', 'opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                }
+            });
+        }
+
+        // Simple client-side form handling (no backend)
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // minimal validation already handled by required attributes
+            document.getElementById('form-success').classList.remove('hidden');
+            // Optionally reset the form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

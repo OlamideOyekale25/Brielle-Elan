@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FAQs | UNIKME Couture</title>
+	<link rel="icon" href="files/favicon2.png" type="image/png">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+		body { font-family: 'Montserrat', sans-serif; }
+		.title-font { font-family: 'Playfair Display', serif; }
+
+		/* Nav link underline animation (copied from index.html) */
+		.nav-link::after {
+			content: '';
+			display: block;
+			width: 0;
+			height: 2px;
+			background: #000;
+			transition: width 0.3s;
+		}
+		.nav-link:hover::after {
+			width: 100%;
+		}
+		.faq-question { cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+		.faq-icon { font-size: 1.5rem; transition: color 0.2s; }
+		.faq-answer {
+			max-height: 0;
+			overflow: hidden;
+			opacity: 0;
+			transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+		}
+		.faq-item.open .faq-answer {
+			max-height: 500px;
+			opacity: 1;
+			transition-delay: 0.15s;
+		}
+		.faq-item.open .faq-icon.plus { display: none; }
+		.faq-item:not(.open) .faq-icon.minus { display: none; }
+
+		.dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu {
+            display: block;
+        }
+	</style>
+</head>
+<body class="bg-white text-gray-800">
+	<!-- Header/Navigation -->
+	<header class="fixed w-full bg-white z-50 shadow-sm">
+		<div class="container mx-auto px-4 py-4 flex items-center">
+			<div class="flex items-center">
+				<img src="files/Logo.png" alt="Brielle Élan Logo" width="50" class="me-2">
+				<a href="index.html" class="title-font text-2xl font-bold">Brielle Élan</a>
+			</div>
+			
+			<nav class="hidden md:flex space-x-8 ml-auto pr-6 md:pr-12 mr-6 md:mr-12">
+				<div class="dropdown relative">
+					<a href="#" class="nav-link font-medium hover:text-gray-600">Shop <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+					<div class="dropdown-menu absolute hidden bg-white py-2 w-48 shadow-lg rounded-md mt-2">
+						<a href="price-guide.html" class="block px-4 py-2 hover:bg-gray-100">Price Guide</a>
+						<a href="Consultation.html" class="block px-4 py-2 hover:bg-gray-100">Book a Consultation</a>
+					</div>
+				</div>
+				<a href="our-process.html" class="nav-link font-medium hover:text-gray-600">Our process</a>
+				<a href="about-us.html" class="nav-link font-medium hover:text-gray-600">About us</a>
+				<a href="faq.html" class="nav-link font-medium hover:text-gray-600">FAQ</a>
+				<a href="contact.html" class="nav-link font-medium hover:text-gray-600">Contact us</a>
+			</nav>
+			
+			<div class="flex items-center">
+				<button class="md:hidden focus:outline-none absolute right-6 top-4" id="mobile-menu-button" aria-label="Toggle menu">
+					<i class="fas fa-bars text-xl"></i>
+				</button>
+			</div>
+		</div>
+
+		
+		<!-- Mobile Menu -->
+	    <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md transition-all duration-300 transform scale-95 opacity-0" id="mobile-menu">
+			<a href="index.html" class="block py-2 font-medium">Home</a>
+			<a href="our-process.html" class="block py-2 font-medium">Our process</a>
+			<a href="price-guide.html" class="block py-2 font-medium">Price Guide</a>
+			<a href="Consultation.html" class="block py-2 font-medium">Book a Consultation</a>
+			<a href="about-us.html" class="block py-2 font-medium">About us</a>
+			<a href="faq.html" class="block py-2 font-medium">FAQ</a>
+			<a href="contact.html" class="block py-2 font-medium">Contact us</a>
+		</div>
+	</header>
+
+	<!-- Hero Section -->
+	   <section class="relative flex items-center justify-center text-center text-white h-[40vh] md:h-[50vh] bg-black">
+		   <div class="z-10 px-4">
+			   <h1 class="title-font text-4xl md:text-6xl font-bold mb-4">FAQs</h1>
+			   <p class="text-lg md:text-2xl max-w-2xl mx-auto">Find answers to the most common questions about Brielle Élan.</p>
+		   </div>
+	   </section>
+
+	<!-- FAQ Section -->
+	<section id="faq" class="py-16 px-4 bg-white">
+		<div class="container mx-auto max-w-3xl">
+			<h2 class="title-font text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+			   <div class="space-y-6">
+				   <div class="faq-item border-b pb-4">
+					   <div class="faq-question text-xl font-semibold mb-2">
+						   <span>What is your payment policy?</span>
+						   <span class="faq-icon plus">+</span>
+						   <span class="faq-icon minus">&minus;</span>
+					   </div>
+					   <div class="faq-answer text-gray-700">
+						   We accept various payment methods, including major
+						   Bank transfers, Cash payment. P:S 70% of total bill payments must be completed before production begins.
+						   100% Payments is required before delivery.
+					   </div>
+				   </div>
+				   <div class="faq-item border-b pb-4">
+					   <div class="faq-question text-xl font-semibold mb-2">
+						   <span>Do you offer international shipping?</span>
+						   <span class="faq-icon plus">+</span>
+						   <span class="faq-icon minus">&minus;</span>
+					   </div>
+					   <div class="faq-answer text-gray-700">
+						   Yes, we ship worldwide. Shipping fees and delivery times vary depending on your location. You will see shipping options at checkout.
+					   </div>
+				   </div>
+				   <div class="faq-item border-b pb-4">
+					   <div class="faq-question text-xl font-semibold mb-2">
+						   <span>Can I return or exchange an item?</span>
+						   <span class="faq-icon plus">+</span>
+						   <span class="faq-icon minus">&minus;</span>
+					   </div>
+					   <div class="faq-answer text-gray-700">
+                         Due to the bespoke nature of our garments, we are unable to accept returns, refunds, or exchanges. We are committed to ensuring your satisfaction through our detailed consultation and fitting process.
+					   </div>
+				   </div>
+				   <div class="faq-item border-b pb-4">
+					   <div class="faq-question text-xl font-semibold mb-2">
+						   <span>How do I care for my garment?</span>
+						   <span class="faq-icon plus">+</span>
+						   <span class="faq-icon minus">&minus;</span>
+					   </div>
+					   <div class="faq-answer text-gray-700">
+						   We recommend dry cleaning for all our garments to maintain their quality and longevity. Please refer to the care label on your item for specific instructions.
+					   </div>
+				   </div>
+				   <div class="faq-item border-b pb-4">
+					   <div class="faq-question text-xl font-semibold mb-2">
+						   <span>How can I contact customer service?</span>
+						   <span class="faq-icon plus">+</span>
+						   <span class="faq-icon minus">&minus;</span>
+					   </div>
+					   <div class="faq-answer text-gray-700">
+						   You can reach us via the contact form on our website or email us at <a href="mailto:info@unikmecouture.com" class="text-blue-600 underline">info@unikmecouture.com</a>. We aim to respond within 24 hours.
+					   </div>
+				   </div>
+				   				   <div class="faq-item border-b pb-4">
+					   <div class="faq-question text-xl font-semibold mb-2">
+						   <span>Do you accept fabrics?</span>
+						   <span class="faq-icon plus">+</span>
+						   <span class="faq-icon minus">&minus;</span>
+					   </div>
+					   <div class="faq-answer text-gray-700">
+						Please check our price guide to ascertain which category we accept fabrics
+					   </div>
+				   </div>
+			   </div>
+		</div>
+	</section>
+
+	<!-- Newsletter/Contact Section -->
+	<section id="contact" class="py-16 px-4 bg-gray-50">
+		<div class="container mx-auto text-center">
+			<h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Stay Connected</h2>
+			<p class="mb-6 text-lg">Sign up for our newsletter or follow us on social media for updates and exclusive offers.</p>
+			<div class="flex justify-center space-x-6 mb-8">
+				<a href="https://www.instagram.com/brielle_elan?igsh=MXY2bWxwdGNqdTIyaw==" class="text-gray-700 hover:text-black text-2xl"><i class="fab fa-instagram"></i></a>
+				<a href="https://www.facebook.com/share/1DCU4DDsur/?mibextid=wwXIfr" class="text-gray-700 hover:text-black text-2xl"><i class="fab fa-facebook"></i></a>
+				<a href="#" class="text-gray-700 hover:text-black text-2xl"><i class="fab fa-twitter"></i></a>
+			</div>
+			<form class="max-w-md mx-auto">
+				<div class="flex flex-col md:flex-row gap-4">
+					<input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 rounded border border-gray-300 focus:outline-none" required>
+					<button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 transition">Sign Up</button>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-black text-white py-6 mt-8">
+		<div class="container mx-auto px-4">
+			<div class="text-center text-sm">&copy; 2025 Brielle Élan. All rights reserved.</div>
+		</div>
+	</footer>
+
+<script>
+// FAQ dropdown logic with delay
+document.querySelectorAll('.faq-question').forEach(function(q) {
+	q.addEventListener('click', function() {
+		var item = this.parentElement;
+		var open = item.classList.contains('open');
+		// Close all (with delay for smoothness)
+		document.querySelectorAll('.faq-item.open').forEach(function(i) {
+			if (i !== item) {
+				i.classList.remove('open');
+			}
+		});
+		// Open this one if it was not open, with a slight delay for effect
+		if (!open) {
+			setTimeout(function() {
+				item.classList.add('open');
+			}, 120);
+		} else {
+			// If closing, add a slight delay for smoothness
+			setTimeout(function() {
+				item.classList.remove('open');
+			}, 120);
+		}
+	});
+});
+</script>
+
+<script>
+		// Mobile menu toggle with animation
+		const mobileMenuButton = document.getElementById('mobile-menu-button');
+		const mobileMenu = document.getElementById('mobile-menu');
+		if (mobileMenuButton && mobileMenu) {
+			mobileMenuButton.addEventListener('click', () => {
+				if (mobileMenu.classList.contains('hidden')) {
+					mobileMenu.classList.remove('hidden');
+					setTimeout(() => {
+						mobileMenu.classList.remove('scale-95', 'opacity-0');
+						mobileMenu.classList.add('scale-100', 'opacity-100');
+					}, 10);
+				} else {
+					mobileMenu.classList.remove('scale-100', 'opacity-100');
+					mobileMenu.classList.add('scale-95', 'opacity-0');
+					setTimeout(() => {
+						mobileMenu.classList.add('hidden');
+					}, 300);
+				}
+			});
+		}
+</script>
+</body>
+</html>

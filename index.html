@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNIKME Couture - HOME FOR ALL UNIQUE OUTFITS, WEDDING DRESS, KIDS OUTFITS</title>
+    <title>Brielle Élan - HOME FOR ALL UNIQUE OUTFITS, WEDDING DRESS, KIDS OUTFITS</title>
     <link rel="icon" href="files/favicon2.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,7 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
         
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'plus jakarta', sans-serif;
             scroll-behavior: smooth;
         }
         
@@ -47,7 +47,7 @@
             width: 100%;
         }
         
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu {
             display: block;
         }
     </style>
@@ -55,114 +55,115 @@
 <body class="bg-white text-gray-800">
     <!-- Header/Navigation -->
     <header class="fixed w-full bg-white z-50 shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="container mx-auto px-4 py-4 flex items-center">
             <div class="flex items-center">
-                <img src="files/Logo.png" alt="UNIKME COUTURE Logo" width="50" class="me-2">
-                <a href="#" class="title-font text-2xl font-bold">UNIKME COUTURE</a>
+                <img src="files/IMG_9925.GIF" alt="Brielle Élan Logo" width="50" class="me-2">
+                <a href="index.html" class="title-font text-2xl font-bold">Brielle Élan</a>
             </div>
             
-            <nav class="hidden md:flex space-x-8">
+            <nav class="hidden md:flex space-x-8 ml-auto pr-6 md:pr-12 mr-6 md:mr-12">
                 <div class="dropdown relative">
                     <a href="#" class="nav-link font-medium hover:text-gray-600">Shop <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
                     <div class="dropdown-menu absolute hidden bg-white py-2 w-48 shadow-lg rounded-md mt-2">
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">New Arrivals</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Women</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Men</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Accessories</a>
+                        <a href="price-guide.html" class="block px-4 py-2 hover:bg-gray-100">Price Guide</a>
+                        <a href="Consultation.html" class="block px-4 py-2 hover:bg-gray-100">Book a Consultation</a>
                     </div>
                 </div>
-                <a href="#" class="nav-link font-medium hover:text-gray-600">Collections</a>
-                <a href="#" class="nav-link font-medium hover:text-gray-600">About</a>
-                <a href="#" class="nav-link font-medium hover:text-gray-600">Journal</a>
-                <a href="#" class="nav-link font-medium hover:text-gray-600">Contact</a>
+                <a href="our-process.html" class="nav-link font-medium hover:text-gray-600">Our process</a>
+                <a href="about-us.html" class="nav-link font-medium hover:text-gray-600">About us</a>
+                <a href="faq.html" class="nav-link font-medium hover:text-gray-600">FAQ</a>
+                <a href="contact.html" class="nav-link font-medium hover:text-gray-600">Contact us</a>
             </nav>
             
-            <!--             <div class="flex items-center space-x-4">
-                <a href="#" class="hover:text-gray-600"><i class="fas fa-search"></i></a>
-                <a href="#" class="hover:text-gray-600"><i class="fas fa-user"></i></a>
-                <a href="#" class="hover:text-gray-600"><i class="fas fa-shopping-bag"></i></a>
-                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+            <div class="flex items-center">
+                <button class="md:hidden focus:outline-none absolute right-6 top-4" id="mobile-menu-button" aria-label="Toggle menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
-        </div> -->
+        </div>
 
         
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md" id="mobile-menu">
-            <a href="#" class="block py-2 font-medium">Shop</a>
-            <a href="#" class="block py-2 font-medium">Collections</a>
-            <a href="#" class="block py-2 font-medium">About</a>
-            <a href="#" class="block py-2 font-medium">Journal</a>
-            <a href="#" class="block py-2 font-medium">Contact</a>
+    <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md transition-all duration-300 transform scale-95 opacity-0" id="mobile-menu">
+            <a href="index.html" class="block py-2 font-medium">Home</a>
+            <a href="our-process.html" class="block py-2 font-medium">Our process</a>
+            <a href="price-guide.html" class="block py-2 font-medium">Price Guide</a>
+            <a href="Consultation.html" class="block py-2 font-medium">Book a Consultation</a>
+            <a href="about-us.html" class="block py-2 font-medium">About us</a>
+            <a href="faq.html" class="block py-2 font-medium">FAQ</a>
+            <a href="contact.html" class="block py-2 font-medium">Contact us</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section flex items-center justify-center text-center text-white pt-16">
-        <div class="px-4">
-            <h1 class="title-font text-4xl md:text-6xl font-bold mb-6">Elevate Your Style</h1>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Premium Nigerian fashion that celebrates African heritage with contemporary designs</p>
-            <a href="#" class="bg-black hover:bg-gray-800 text-white px-8 py-3 inline-block transition duration-300">Shop Now</a>
+    <section class="hero-section flex items-end justify-center text-center text-white pt-16" style="height: 100vh;">
+        <div class="w-full flex flex-col items-center justify-end pb-24">
+            <h1 class="title-font text-4xl md:text-6xl font-bold mb-6">WE BELIEVE</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">True luxury is defined by the precision of every detail, the time devoted to craftsmanship, and the personal bond we create with every individual we dress.</p>
+            <a href="about-us.html" class="bg-black hover:bg-gray-800 text-white px-8 py-3 inline-block transition duration-300">
+                READ MORE ABOUT US
+                <span class="inline-block text-md">&#8250;</span>
+            </a>
         </div>
     </section>
 
     <!-- Featured Collections -->
-    <section class="py-16 px-4">
+    <section class="py-16 px-4 bg-brown">
         <div class="container mx-auto">
-            <h2 class="title-font text-3xl md:text-4xl text-center mb-12">Our Collections</h2>
+            <h2 class="title-font text-3xl md:text-6xl text-center mb-12">EXPLORE</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Collection 1 -->
-                <div class="collection-card">
-                    <div class="relative overflow-hidden mb-4">
-                        <img src="files/slide1.jpg" alt="Women's Collection" class="w-full h-100 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
-                            <a href="#" class="text-white border border-white px-6 py-2 opacity-0 hover:opacity-100 transition duration-300">View Collection</a>
+                <div class="collection-card group">
+                    <a href="price-guide.html" class="block">
+                        <div class="relative overflow-hidden mb-4">
+                            <img src="files/IMG_2731.JPG" alt="Women's Collection" class="w-full h-100 object-cover">
+                            <div class="absolute inset-0 transition duration-300 bg-black opacity-0 group-hover:opacity-60"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center transition duration-300 bg-transparent group-hover:shadow-2xl group-hover:shadow-black">
+                                <h3 class="text-xl md:text-2xl font-extrabold mb-4 text-white drop-shadow-lg transform transition duration-300 group-hover:-translate-y-6" style="font-family: 'Montserrat', sans-serif;">PRICE GUIDE</h3>
+                            </div>
                         </div>
-                    </div>
-                    <h3 class="title-font text-xl mb-2">Wedding Dresses</h3>
-                    <p class="text-gray-600">Elegant designs inspired by Nigerian culture</p>
+                    </a>
                 </div>
-                
                 <!-- Collection 2 -->
-                <div class="collection-card">
-                    <div class="relative overflow-hidden mb-4">
-                        <img src="files/slide3.jpg" alt="Men's Collection" class="w-full h-100 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
-                            <a href="#" class="text-white border border-white px-6 py-2 opacity-0 hover:opacity-100 transition duration-300">View Collection</a>
+                <div class="collection-card group">
+                    <a href="Consultation.html" class="block">
+                        <div class="relative overflow-hidden mb-4">
+                            <img src="files/slide7.jpg" alt="Men's Collection" class="w-full h-100 object-cover">
+                            <div class="absolute inset-0 transition duration-300 bg-black opacity-0 group-hover:opacity-60"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center transition duration-300 bg-transparent group-hover:shadow-2xl group-hover:shadow-black">
+                                <h3 class="text-xl md:text-2xl font-extrabold mb-4 text-white drop-shadow-lg transform transition duration-300 group-hover:-translate-y-6" style="font-family: 'Montserrat', sans-serif;">BOOK A CONSULTATION</h3>
+                            </div>
                         </div>
-                    </div>
-                    <h3 class="title-font text-xl mb-2">Kids Outfits</h3>
-                    <p class="text-gray-600">Sophisticated styles with African influences</p>
+                    </a>
                 </div>
-                
                 <!-- Collection 3 -->
-                <div class="collection-card">
-                    <div class="relative overflow-hidden mb-4">
-                        <img src="files/slide2.jpg" alt="Accessories" class="w-full h-100 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
-                            <a href="#" class="text-white border border-white px-6 py-2 opacity-0 hover:opacity-100 transition duration-300">View Collection</a>
+                <div class="collection-card group">
+                    <a href="our-process.html" class="block">
+                        <div class="relative overflow-hidden mb-4">
+                            <img src="files/IMG_3118.JPG" alt="Accessories" class="w-full h-100 object-cover">
+                            <div class="absolute inset-0 transition duration-300 bg-black opacity-0 group-hover:opacity-60"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center transition duration-300 bg-transparent group-hover:shadow-2xl group-hover:shadow-black">
+                                <h3 class="text-xl md:text-2xl font-extrabold mb-4 text-white drop-shadow-lg transform transition duration-300 group-hover:-translate-y-6" style="font-family: 'Montserrat', sans-serif;">OUR PROCESS</h3>
+                            </div>
                         </div>
-                    </div>
-                    <h3 class="title-font text-xl mb-2">Unique Outfits</h3>
-                    <p class="text-gray-600">Handcrafted pieces to complete your look</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="py-16 px-4 bg-gray-50">
+    <section class="py-16 px-4 bg-white">
         <div class="container mx-auto flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About AfriKouture" class="w-full h-auto">
+                <img src="files/IMG_9925.GIF" alt="About AfriKouture" class="w-full h-auto">
             </div>
             <div class="md:w-1/2">
-                <h2 class="title-font text-3xl md:text-4xl mb-6">Our Story</h2>
-                <p class="text-gray-600 mb-6">Founded in Lagos, Unikme Couture is a celebration of Nigerian craftsmanship and contemporary design. We blend traditional African textiles with modern silhouettes to create unique pieces that tell a story.</p>
+                <h2 class="title-font text-3xl md:text-6xl mb-6">Our Story</h2>
+                <p class="text-gray-600 mb-6">Brielle Élan is a luxury women’s fashion brand inspired by the women who wear our creations—women of grace, strength, and individuality. Every design is a reflection of her story, her elegance, and her timeless beauty.</p>
                 <p class="text-gray-600 mb-8">Each garment is carefully crafted by skilled artisans using ethically sourced materials, supporting local communities while delivering exceptional quality to our customers worldwide.</p>
-                <a href="#" class="border border-black text-black hover:bg-black hover:text-white px-8 py-3 inline-block transition duration-300">Learn More</a>
+                <a href="about-us.html" class="border border-black text-black hover:bg-black hover:text-white px-8 py-3 inline-block transition duration-300">Learn More</a>
             </div>
         </div>
     </section>
@@ -170,41 +171,39 @@
     <!-- Featured Products -->
     <section class="py-16 px-4">
         <div class="container mx-auto">
-            <h2 class="title-font text-3xl md:text-4xl text-center mb-12">Featured Products</h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Product 1 -->
-                <div class="group">
-                    <div class="relative overflow-hidden mb-4">
-                        <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1479&q=80" alt="Ankara Dress" class="w-full h-80 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition duration-300"></div>
-                        <button class="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition duration-300">Quick View</button>
+            <h2 class="title-font text-3xl md:text-4xl text-center mb-12">BRIELLE ÉLAN IN REAL LIFE</h2>
+
+            <!-- Carousel -->
+            <div class="relative">
+                <div id="hero-carousel" class="flex gap-6 snap-x snap-mandatory overflow-x-auto pb-6 scroll-smooth">
+                    <!-- Slide 1 -->
+                    <div class="snap-start shrink-0 w-[320px] md:w-[420px] lg:w-[520px] bg-white rounded shadow-lg overflow-hidden">
+                        <img src="files/slide1.jpg" alt="Slide 1" class="w-full h-[420px] lg:h-[520px] object-cover">
                     </div>
-                    <h3 class="font-medium mb-1">Wedding Dresses</h3>
-                    <p class="text-gray-600 mb-2">₦25,000</p>
+                    <!-- Slide 2 -->
+                    <div class="snap-start shrink-0 w-[320px] md:w-[420px] lg:w-[520px] bg-white rounded shadow-lg overflow-hidden">
+                        <img src="files/slide2.jpg" alt="Slide 2" class="w-full h-[420px] lg:h-[520px] object-cover">
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="snap-start shrink-0 w-[320px] md:w-[420px] lg:w-[520px] bg-white rounded shadow-lg overflow-hidden">
+                        <img src="files/slide3.jpg" alt="Slide 3" class="w-full h-[420px] lg:h-[520px] object-cover">
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="snap-start shrink-0 w-[320px] md:w-[420px] lg:w-[520px] bg-white rounded shadow-lg overflow-hidden">
+                        <img src="files/slide4.jpg" alt="Slide 4" class="w-full h-[420px] lg:h-[520px] object-cover">
+                    </div>
                 </div>
-                
-                <!-- Product 2 -->
-                <div class="group">
-                    <div class="relative overflow-hidden mb-4">
-                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Men's Agbada" class="w-full h-80 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition duration-300"></div>
-                        <button class="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition duration-300">Quick View</button>
-                    </div>
-                    <h3 class="font-medium mb-1">Kids Outfits</h3>
-                    <p class="text-gray-600 mb-2">₦45,000</p>
-                </div>
-                
-                
-                <!-- Product 4 -->
-                <div class="group">
-                    <div class="relative overflow-hidden mb-4">
-                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Ankara Top" class="w-full h-80 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition duration-300"></div>
-                        <button class="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition duration-300">Quick View</button>
-                    </div>
-                    <h3 class="font-medium mb-1">Ankara Wrap Top</h3>
-                    <p class="text-gray-600 mb-2">₦18,000</p>
+
+                <!-- Prev/Next buttons -->
+                <button id="carousel-prev" class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg absolute left-[-24px] top-1/2 -translate-y-1/2 z-20">
+                    <i class="fas fa-chevron-left text-xl text-gray-600"></i>
+                </button>
+                <button id="carousel-next" class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg absolute right-[-24px] top-1/2 -translate-y-1/2 z-20">
+                    <i class="fas fa-chevron-right text-xl text-gray-600"></i>
+                </button>
+
+                <!-- Dots -->
+                <div id="carousel-dots" class="flex items-center justify-center gap-3 mt-6">
                 </div>
             </div>
             
@@ -232,13 +231,13 @@
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="title-font text-xl font-bold mb-4">Unikme Couture</h3>
-                    <p class="text-gray-600 mb-4">Premium Nigerian fashion celebrating African heritage with contemporary designs.</p>
+                    <h3 class="title-font text-xl font-bold mb-4">BRIELLE ÉLAN</h3>
+                    <p class="text-gray-600 mb-4">Brielle Élan is a luxury women’s fashion brand inspired by the women who wear our creations.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/unikme_couture/" class="text-gray-600 hover:text-black"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-600 hover:text-black"><i class="fab fa-pinterest"></i></a>
+                        <a href="https://www.instagram.com/brielle_elan?igsh=MXY2bWxwdGNqdTIyaw==" class="text-gray-600 hover:text-black"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/brielle_elan" class="text-gray-600 hover:text-black"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/share/1DCU4DDsur/?mibextid=wwXIfr" class="text-gray-600 hover:text-black"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.pinterest.com/brielleelan/" class="text-gray-600 hover:text-black"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
                 
@@ -256,10 +255,10 @@
                 <div>
                     <h4 class="font-bold mb-4">Information</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-600 hover:text-black">About Us</a></li>
+                        <li><a href="about-us.html" class="text-gray-600 hover:text-black">About Us</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-black">Sustainability</a></li>
                         <li><a href="#" class="text-gray-600 hover:text-black">Journal</a></li>
-                         <li><a href="#" class="text-gray-600 hover:text-black">Contact Us</a></li>
+                        <li><a href="contact.html" class="text-gray-600 hover:text-black">Contact Us</a></li>
                     </ul>
                 </div>
                 
@@ -269,14 +268,14 @@
                         <p class="mb-2">123 Fashion Avenue</p>
                         <p class="mb-2">Ikorodu, Lagos</p>
                         <p class="mb-2">Nigeria</p>
-                        <p class="mb-2">+234 812 345 6789</p>
-                        <p>hello@UnikmeCouture.com</p>
+                        <p class="mb-2">+234 707 894 8911</p>
+                        <p>brielleelan@gmail.com</p>
                     </address>
                 </div>
             </div>
             
             <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-600 mb-4 md:mb-0">© 2025 Unikme Couture. All rights reserved.</p>
+                <p class="text-gray-600 mb-4 md:mb-0">© 2025 Brielle Élan. All rights reserved.</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-600 hover:text-black">Privacy Policy</a>
                     <a href="#" class="text-gray-600 hover:text-black">Terms of Service</a>
@@ -289,10 +288,23 @@
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('scale-95', 'opacity-0');
+                        mobileMenu.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                } else {
+                    mobileMenu.classList.remove('scale-100', 'opacity-100');
+                    mobileMenu.classList.add('scale-95', 'opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                }
+            });
+        }
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -304,6 +316,62 @@
                 });
             });
         });
+
+        // Simple horizontal carousel behaviour
+        (function() {
+            const carousel = document.getElementById('hero-carousel');
+            if (!carousel) return;
+
+            const slides = Array.from(carousel.children);
+            const prev = document.getElementById('carousel-prev');
+            const next = document.getElementById('carousel-next');
+            const dotsContainer = document.getElementById('carousel-dots');
+
+            // build dots
+            slides.forEach((s, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-3 h-3 rounded-full bg-pink-200/60';
+                if (i === 0) btn.classList.add('ring-2', 'ring-pink-200');
+                btn.addEventListener('click', () => {
+                    s.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                });
+                dotsContainer.appendChild(btn);
+            });
+
+            function updateDots() {
+                const rects = slides.map(s => s.getBoundingClientRect().left - carousel.getBoundingClientRect().left);
+                const closestIndex = rects.reduce((bestIdx, val, idx) => Math.abs(val) < Math.abs(rects[bestIdx]) ? idx : bestIdx, 0);
+                Array.from(dotsContainer.children).forEach((d, i) => {
+                    d.classList.toggle('ring-2', i === closestIndex);
+                });
+            }
+
+            let isThrottled = false;
+            carousel.addEventListener('scroll', () => {
+                if (isThrottled) return;
+                isThrottled = true;
+                setTimeout(() => { updateDots(); isThrottled = false; }, 100);
+            });
+
+            if (prev && next) {
+                prev.addEventListener('click', () => {
+                    const idx = Math.max(0, Math.floor(carousel.scrollLeft / slides[0].offsetWidth) - 1);
+                    slides[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                });
+                next.addEventListener('click', () => {
+                    const idx = Math.min(slides.length - 1, Math.ceil(carousel.scrollLeft / slides[0].offsetWidth) + 1);
+                    slides[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                });
+            }
+        })();
     </script>
 </body>
 </html>
+
+
+<!-- <div class="relative overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Ankara Top" class="w-full h-80 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition duration-300"></div>
+                        <button class="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition duration-300">Quick View</button>
+                    </div>
+                 
