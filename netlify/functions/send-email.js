@@ -1,9 +1,9 @@
 const sgMail = require('@sendgrid/mail');
 
 // Initialize SendGrid API key from environment (do NOT hard-code secrets)
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || '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';
-const FROM_EMAIL = process.env.FROM_EMAIL || 'olamideoyek@gmail.com';
-const TO_EMAIL = process.env.TO_EMAIL || 'olamideoyek@gmail.com';
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || '';
+const FROM_EMAIL = process.env.FROM_EMAIL || '';
+const TO_EMAIL = process.env.TO_EMAIL || '';
 
 if (SENDGRID_API_KEY) {
   sgMail.setApiKey(SENDGRID_API_KEY);
