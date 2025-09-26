@@ -74,7 +74,7 @@
             <!-- Contact form -->
             <div class="lg:col-span-2 bg-white p-8 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold mb-4">Send us a message</h2>
-                <form id="contact-form" class="space-y-4" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <form id="contact-form" class="space-y-4" name="contact" method="POST">
                     <input type="hidden" name="form-name" value="contact">
                     <!-- honeypot field -->
                     <p class="hidden">
@@ -212,33 +212,40 @@
             });
         }
 
-        // Netlify form submission (AJAX) with honeypot handling
+        // Submit form to Netlify Function that sends email
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
                 const form = e.target;
                 const formData = new FormData(form);
 
-                // If honeypot filled, abort
+                // Honeypot handling (field named bot-field)
                 if (formData.get('bot-field')) return;
 
-                fetch('/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(formData).toString()
-                }).then(response => {
-                    if (response.ok) {
+                const payload = {};
+                formData.forEach((v, k) => { payload[k] = v; });
+
+                try {
+                    const res = await fetch('/.netlify/functions/send-email', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (res.ok) {
                         document.getElementById('contact-success').classList.remove('hidden');
                         form.reset();
                     } else {
-                        alert('There was a problem submitting the form. Please try again.');
+                        const body = await res.json().catch(() => ({}));
+                        console.error('Send error', body);
+                        alert('There was a problem sending your message. Please try again later.');
                     }
-                }).catch(err => {
+                } catch (err) {
                     console.error(err);
-                    alert('There was a problem submitting the form. Please try again.');
-                });
+                    alert('There was a problem sending your message. Please try again later.');
+                }
             });
         }
 
