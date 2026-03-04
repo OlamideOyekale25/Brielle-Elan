@@ -9,9 +9,30 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 		body { font-family: 'Montserrat', sans-serif; }
 		.title-font { font-family: 'Playfair Display', serif; }
+
+		/* Poppins for nav, CTAs, form controls and footer links */
+		.nav-link, #mobile-menu a {
+			font-family: 'Poppins', sans-serif;
+		}
+
+		.container a.border,
+		.container a.bg-black,
+		.container button,
+		button {
+			font-family: 'Poppins', sans-serif;
+			font-weight: 600;
+		}
+
+		input, select, textarea, .container button {
+			font-family: 'Poppins', sans-serif;
+		}
+
+		footer a, footer .text-gray-600 {
+			font-family: 'Poppins', sans-serif;
+		}
 
 		/* Nav link underline animation (copied from index.html) */
 		.nav-link::after {
@@ -37,7 +58,7 @@
 	<header class="fixed w-full bg-white z-50 shadow-sm">
 		<div class="container mx-auto px-4 py-4 flex items-center">
 			<div class="flex items-center">
-				<img src="files/Logo.png" alt="Brielle Élan Logo" width="50" class="me-2">
+				<img src="files/IMG_9925.GIF" alt="Brielle Élan Logo" width="50" class="me-2">
 				<a href="index.html" class="title-font text-2xl font-bold">Brielle Élan</a>
 			</div>
 			
@@ -81,11 +102,10 @@
 			<div class="md:w-1/2 order-2 md:order-1">
 				<h2 class="title-font text-3xl md:text-4xl font-bold mb-6">MISSION</h2>
 				<!--h3 class="text-xl font-semibold mb-2">- Oyeyemi Oyekale</h3-->
-				<p class="mb-4 text-lg">At Brielle Élan, our mission is to craft exquisite, custom made bridal and couture pieces that honor individuality and embody timeless elegance.</p>
-				<p class="mb-4 text-lg">We seamlessly merge traditional craftsmanship with contemporary design, transforming each client’s vision into a masterpiece defined by exceptional detail, quality, and sophistication.</p>
+				<p class="mb-4 text-lg">At Brielle Élan, our mission is to create bridal and couture pieces that go beyond attire—they are works of art, tailored to honor individuality and embody timeless elegance. Each creation is custom-made, reflecting the personal story and unique essence of the wearer. By seamlessly merging traditional craftsmanship with innovative contemporary design, we ensure that every gown is not only a garment but a lasting symbol of sophistication, grace, and authenticity. With an uncompromising dedication to detail, quality, and artistry, we transform each client’s vision into a masterpiece that celebrates life’s most cherished moments.</p>
 			</div>
 			<div class="md:w-1/2 order-1 md:order-2 mb-8 md:mb-0 flex justify-center">
-				<img src="" alt="Picture of the team" class="rounded-lg shadow-lg w-80 h-96 object-cover">
+				<img src="files/WhatsApp Image 2025-10-15 at 17.42.45_ab673645.jpg" alt="About UNIKME Couture" class="w-[400px] h-[600px] md:w-[500px] md:h-[500px] object-cover" style="object-position: center;">
 			</div>
 		</div>
 	</section>
@@ -94,11 +114,11 @@
 	<section id="about" class="py-16 px-4 bg-white">
 		<div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
 			<div class="md:w-1/2 mb-8 md:mb-0">
-				<img src="#" alt="About UNIKME Couture" class="rounded-lg shadow-lg w-full object-cover">
+				<img src="files/WhatsApp Image 2025-09-25 at 09.39.03_eecf7c6c.jpg" alt="About UNIKME Couture" class="w-[400px] h-[400px] md:w-[500px] md:h-[600px] object-cover" style="object-position: center;">
 			</div>
 			<div class="md:w-1/2">
 				<h2 class="title-font text-3xl md:text-4xl font-bold mb-6">VISION</h2>
-				<p class="mb-4 text-lg">Our vision is to become a global symbol of luxury couture, redefining bridal and eveningwear with unparalleled artistry, innovation, and an unwavering commitment to individuality.</p>
+				<p class="mb-4 text-lg">Our vision is to establish ourselves as a global symbol of luxury couture—an atelier where tradition meets innovation, and every creation is a testament to artistry, refinement, and imagination. We aspire to redefine bridal and eveningwear by blending timeless craftsmanship with modern design, producing pieces that embody elegance and exclusivity. With an unwavering commitment to individuality, we aim to celebrate each client’s unique identity, transforming garments into personal statements of beauty, confidence, and distinction. Beyond fashion, our vision is to set a new standard of luxury that inspires, empowers, and resonates with audiences worldwide.</p>
 			</div>
 		</div>
 	</section>
@@ -171,26 +191,33 @@
 	</footer>
 
 	<script>
-		// Mobile menu toggle with animation
-		const mobileMenuButton = document.getElementById('mobile-menu-button');
-		const mobileMenu = document.getElementById('mobile-menu');
-		if (mobileMenuButton && mobileMenu) {
-			mobileMenuButton.addEventListener('click', () => {
-				if (mobileMenu.classList.contains('hidden')) {
-					mobileMenu.classList.remove('hidden');
-					setTimeout(() => {
-						mobileMenu.classList.remove('scale-95', 'opacity-0');
-						mobileMenu.classList.add('scale-100', 'opacity-100');
-					}, 10);
-				} else {
-					mobileMenu.classList.remove('scale-100', 'opacity-100');
-					mobileMenu.classList.add('scale-95', 'opacity-0');
-					setTimeout(() => {
-						mobileMenu.classList.add('hidden');
-					}, 300);
+		(function setupMobileMenu() {
+			function bind() {
+				try {
+					const btn = document.getElementById('mobile-menu-button');
+					const menu = document.getElementById('mobile-menu');
+					if (!btn || !menu) return;
+					if (btn.dataset.mobileMenuBound === 'true') return;
+					btn.addEventListener('click', () => {
+						if (menu.classList.contains('hidden')) {
+							menu.classList.remove('hidden');
+							setTimeout(() => {
+								menu.classList.remove('scale-95', 'opacity-0');
+								menu.classList.add('scale-100', 'opacity-100');
+							}, 10);
+						} else {
+							menu.classList.remove('scale-100', 'opacity-100');
+							menu.classList.add('scale-95', 'opacity-0');
+							setTimeout(() => menu.classList.add('hidden'), 300);
+						}
+					});
+					btn.dataset.mobileMenuBound = 'true';
+				} catch (e) {
+					console.warn('mobile menu bind failed', e);
 				}
-			});
-		}
+			}
+			if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
+		})();
 	</script>
 </body>
 </html>

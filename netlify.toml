@@ -1,6 +1,1 @@
-[build]
-  publish = "."
-  functions = "netlify/functions"
-
-[dev]
-  functions = "netlify/functions"
+# netlify.toml removed functions configuration as part of revert

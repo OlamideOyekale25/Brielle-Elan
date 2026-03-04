@@ -8,9 +8,30 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
         body { font-family: 'plus jakarta', sans-serif; }
         .title-font { font-family: 'Playfair Display', serif; }
+
+        /* Poppins for nav, CTAs, form controls and footer links */
+        .nav-link, #mobile-menu a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container a.border,
+        .container a.bg-black,
+        .container button,
+        button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        input, select, textarea, .container button {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer a, footer .text-gray-600 {
+            font-family: 'Poppins', sans-serif;
+        }
 
         /* Nav link underline animation (copied from index.html) */
         .nav-link::after {
@@ -79,7 +100,7 @@
     <section class="py-16 px-4 bg-gray-50">
         <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2 w-full mb-8 md:mb-0 flex justify-center">
-                <img src="files/WhatsApp Image 2025-09-25 at 09.39.03_eecf7c6c.jpg" alt="Bridal Gown"  class="w-[400px] h-[400px] md:w-[500px] md:h-[500px] object-cover shadow-2xl" style="object-position: center; clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%); border-radius: 60px;" />
+                <img src="files/WhatsApp Image 2025-10-01 at 16.25.28_ead68e34.jpg" alt="Bridal Gown"  class="w-[600px] h-[600px] md:w-[400px] md:h-[600px] object-contain shadow-2xl" style="object-position: center; clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%); border-radius: 60px;" />
             </div>
             <div class="md:w-1/2 w-full ">
                 <div class="overflow-x-auto">
@@ -93,43 +114,51 @@
                         <tbody>
                             <tr class="border-b">
                                 <td class="py-4 px-6">Wedding dress (Fabric inclusive)</td>
-                                <td class="py-4 px-6">1,800,000</td>
+                                <td class="py-4 px-6">Starts from 800,000</td>
                             </tr>
                             <tr class="border-b bg-gray-50">
                                 <td class="py-4 px-6">Civil wedding dress (Fabric inclusive)</td>
-                                <td class="py-4 px-6">800,000</td>
+                                <td class="py-4 px-6">Starts from 350,000</td>
                             </tr>
                             <tr class="border-b">
                                 <td class="py-4 px-6">Bridesmaid Dress (Fabric inclusive)</td>
-                                <td class="py-4 px-6">145,000</td>
+                                <td class="py-4 px-6">Starts from 150,000</td>
                             </tr>
                             <tr class="border-b bg-gray-50">
-                                <td class="py-4 px-6">Glam dress (Fabric inclusive)</td>
-                                <td class="py-4 px-6">1,200,000</td>
+                                <td class="py-4 px-6">Birthday/Glam dress (Fabric inclusive)</td>
+                                <td class="py-4 px-6">Starts from 300,000</td>
                             </tr>
                             <tr class="border-b">
-                                <td class="py-4 px-6">Bridal robe (Fabric inclusive)</td>
-                                <td class="py-4 px-6">500,000</td>
+                                <td class="py-4 px-6">Luxury Bridal Robes(Fabric inclusive)</td>
+                                <td class="py-4 px-6">Starts from 350,000</td>
                             </tr>
                             <tr class="border-b bg-gray-50">
                                 <td class="py-4 px-6">Bridal shower dress (Fabric inclusive)</td>
-                                <td class="py-4 px-6">250,000</td>
+                                <td class="py-4 px-6">Starts from 220,000</td>
                             </tr>
                             <tr>
                                 <td class="py-4 px-6">Prom dress (Fabric inclusive)</td>
-                                <td class="py-4 px-6">650,000</td>
+                                <td class="py-4 px-6">Starts from 600,000</td>
                             </tr>
                             <tr class="border-b bg-gray-50">
-                                <td class="py-4 px-6">Reception outfit (Fabric inclusive)</td>
-                                <td class="py-4 px-6">650,000</td>
+                                <td class="py-4 px-6">Reception Dress (Fabric inclusive)</td>
+                                <td class="py-4 px-6">Starts from 420,000</td>
                             </tr>
                             <tr>
-                                <td class="py-4 px-6">Aso-Oke traditional attire (Fabric Exclusive)</td>
-                                <td class="py-4 px-6">450,000</td>
+                                <td class="py-4 px-6">Traditional wedding Outfit (George/Aso-Oke) (Fabric Exclusive)</td>
+                                <td class="py-4 px-6">Starts from 300,000</td>
                             </tr>
                             <tr class="border-b bg-gray-50">
-                                <td class="py-4 px-6">George and other tribe traditional attire (Fabric Exclusive)</td>
-                                <td class="py-4 px-6">400,000</td>
+                                <td class="py-4 px-6">Luxe Beaded Fabric (Fabric Exclusive)</td>
+                                <td class="py-4 px-6">Starts from 400,000</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-4 px-6">Prom dress (Fabric Exclusive)</td>
+                                <td class="py-4 px-6">Starts from 600,000</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-4 px-6">After Party dress (Fabric Exclusive)</td>
+                                <td class="py-4 px-6">Starts from 250,000</td>
                             </tr>
                         </tbody>
                     </table>
@@ -152,7 +181,9 @@
                     <li>Multiple fittings to ensure the perfect fit.</li>
                     <li>Detailed production timeline and progress updates.</li>
                 </ul>
-                <p class="mt-8 text-base italic text-gray-300">* Please note: All prices listed are starting prices. Embellishments, design variations, and fabric choices may affect the final price.</p>
+                <p class="mt-8 text-base italic text-gray-300">* PLEASE NOTE: All prices listed are starting prices. Embellishments, design variations, and fabric choices may affect the final price.</p>
+                <p class="mt-4 text-base italic text-gray-300">* Aso oke comes with a complimentary veil</p>
+                <p class="mt-4 text-base italic text-gray-300">* Wedding dresses also include a complimentary cathedral veil (Custom veil attracts extra cost)</p>
             </div>
             <div class="md:w-1/2 w-full flex justify-center">
                 <img src="files/IMG_1424.JPG" alt="Bridal Gown" class="w-[400px] h-[400px] md:w-[500px] md:h-[500px] object-cover shadow-2xl" style="object-position: center; clip-path: ellipse(50% 60% at 50% 40%); border-radius: 50% 50% 50% 0;" />
@@ -177,11 +208,9 @@
                 <div>
                     <h4 class="font-bold mb-4">Shop</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-600 hover:text-black">New Arrivals</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-black">Women</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-black">Men</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-black">Accessories</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-black">Sale</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Updates</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Our Process</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black">Price Guide</a></li>
                     </ul>
                 </div>
                 <div>
@@ -215,26 +244,33 @@
     </footer>
 
     <script>
-        // Mobile menu toggle with animation
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.remove('scale-95', 'opacity-0');
-                        mobileMenu.classList.add('scale-100', 'opacity-100');
-                    }, 10);
-                } else {
-                    mobileMenu.classList.remove('scale-100', 'opacity-100');
-                    mobileMenu.classList.add('scale-95', 'opacity-0');
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 300);
+        (function setupMobileMenu() {
+            function bind() {
+                try {
+                    const btn = document.getElementById('mobile-menu-button');
+                    const menu = document.getElementById('mobile-menu');
+                    if (!btn || !menu) return;
+                    if (btn.dataset.mobileMenuBound === 'true') return;
+                    btn.addEventListener('click', () => {
+                        if (menu.classList.contains('hidden')) {
+                            menu.classList.remove('hidden');
+                            setTimeout(() => {
+                                menu.classList.remove('scale-95', 'opacity-0');
+                                menu.classList.add('scale-100', 'opacity-100');
+                            }, 10);
+                        } else {
+                            menu.classList.remove('scale-100', 'opacity-100');
+                            menu.classList.add('scale-95', 'opacity-0');
+                            setTimeout(() => menu.classList.add('hidden'), 300);
+                        }
+                    });
+                    btn.dataset.mobileMenuBound = 'true';
+                } catch (e) {
+                    console.warn('mobile menu bind failed', e);
                 }
-            });
-        }
+            }
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
+        })();
     </script>
 </body>
 </html>

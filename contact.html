@@ -8,9 +8,30 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Montserrat', sans-serif; }
         .title-font { font-family: 'Playfair Display', serif; }
+
+        /* Poppins for nav, CTAs, form controls and footer links */
+        .nav-link, #mobile-menu a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container a.border,
+        .container a.bg-black,
+        .container button,
+        button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        input, select, textarea, .container button {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer a, footer .text-gray-600 {
+            font-family: 'Poppins', sans-serif;
+        }
 
         /* Nav link underline animation (copied from other pages) */
         .nav-link::after {
@@ -61,44 +82,19 @@
     </header>
 
     <!-- Hero -->
-    <section class="pt-28 bg-white">
+    <section class="pt-28 bg-black">
         <div class="container mx-auto px-4 py-20 text-center">
-            <h1 class="title-font text-4xl md:text-5xl font-bold mb-4">Get in touch</h1>
-            <p class="max-w-2xl mx-auto text-lg text-gray-700">Have a question about our services or want to book an appointment? Send us a message and we'll respond within 48 hours.</p>
+            <h1 class="title-font text-4xl md:text-5xl font-bold mb-4 text-white">Get in touch</h1>
+            <p class="max-w-2xl mx-auto text-lg text-white">Have a question about our services or want to book an appointment? Send us a message and we'll respond within 48 hours.</p>
         </div>
     </section>
 
     <!-- Contact content -->
     <section class="py-12 px-4">
         <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Contact form -->
-            <div class="lg:col-span-2 bg-white p-8 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-bold mb-4">Send us a message</h2>
-                <form id="contact-form" class="space-y-4" name="contact" method="POST">
-                    <input type="hidden" name="form-name" value="contact">
-                    <!-- honeypot field -->
-                    <p class="hidden">
-                        <label>Don’t fill this out if you're human: <input name="bot-field"></label>
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" name="name" id="name" placeholder="Full name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
-                        <input type="email" name="email" id="email" placeholder="Email address" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="tel" name="phone" id="phone" placeholder="Phone number" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
-                        <input type="text" name="subject" id="subject" placeholder="Subject" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
-                    </div>
-
-                    <textarea name="message" id="message" rows="6" placeholder="How can we help?" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none"></textarea>
-
-                    <div class="flex items-center space-x-4">
-                        <button type="submit" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition">Send message</button>
-                        <button type="reset" class="text-gray-700 px-4 py-2 rounded border">Reset</button>
-                    </div>
-
-                    <p id="contact-success" class="text-green-600 mt-4 hidden">Thanks — your message was sent. We'll get back to you shortly.</p>
-                </form>
+            <!-- Photo instead of contact form -->
+            <div class="lg:col-span-2 bg-white p-0 rounded-lg shadow-lg">
+                <img src="files/WhatsApp Image 2025-10-15 at 17.42.46_e19249f2.jpg" alt="Brielle Élan" class="w-full h-auto object-contain mx-auto" style="max-height:600px;">
             </div>
 
             <!-- Contact details -->
@@ -191,61 +187,61 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.remove('scale-95', 'opacity-0');
-                        mobileMenu.classList.add('scale-100', 'opacity-100');
-                    }, 10);
-                } else {
-                    mobileMenu.classList.remove('scale-100', 'opacity-100');
-                    mobileMenu.classList.add('scale-95', 'opacity-0');
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 300);
+        (function setupMobileMenu() {
+            function bind() {
+                try {
+                    const btn = document.getElementById('mobile-menu-button');
+                    const menu = document.getElementById('mobile-menu');
+                    if (!btn || !menu) return;
+                    if (btn.dataset.mobileMenuBound === 'true') return;
+                    btn.addEventListener('click', () => {
+                        if (menu.classList.contains('hidden')) {
+                            menu.classList.remove('hidden');
+                            setTimeout(() => {
+                                menu.classList.remove('scale-95', 'opacity-0');
+                                menu.classList.add('scale-100', 'opacity-100');
+                            }, 10);
+                        } else {
+                            menu.classList.remove('scale-100', 'opacity-100');
+                            menu.classList.add('scale-95', 'opacity-0');
+                            setTimeout(() => menu.classList.add('hidden'), 300);
+                        }
+                    });
+                    btn.dataset.mobileMenuBound = 'true';
+                } catch (e) {
+                    console.warn('mobile menu bind failed', e);
                 }
-            });
-        }
+            }
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
+        })();
 
-        // Submit form to Netlify Function that sends email
+        // Netlify form submission (AJAX) with honeypot handling
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
-            contactForm.addEventListener('submit', async function(e) {
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 const form = e.target;
                 const formData = new FormData(form);
 
-                // Honeypot handling (field named bot-field)
+                // If honeypot filled, abort
                 if (formData.get('bot-field')) return;
 
-                const payload = {};
-                formData.forEach((v, k) => { payload[k] = v; });
-
-                try {
-                    const res = await fetch('/.netlify/functions/send-email', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (res.ok) {
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                }).then(response => {
+                    if (response.ok) {
                         document.getElementById('contact-success').classList.remove('hidden');
                         form.reset();
                     } else {
-                        const body = await res.json().catch(() => ({}));
-                        console.error('Send error', body);
-                        alert('There was a problem sending your message. Please try again later.');
+                        alert('There was a problem submitting the form. Please try again.');
                     }
-                } catch (err) {
+                }).catch(err => {
                     console.error(err);
-                    alert('There was a problem sending your message. Please try again later.');
-                }
+                    alert('There was a problem submitting the form. Please try again.');
+                });
             });
         }
 

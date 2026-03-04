@@ -8,18 +8,73 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-        
+        /* Fonts: keep Playfair for titles, add Poppins for UI elements */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
         body {
             font-family: 'plus jakarta', sans-serif;
             scroll-behavior: smooth;
         }
-        
+
+        /* Apply Poppins selectively to UI elements: nav, CTAs, form controls, footer links */
+        .nav-link, #mobile-menu a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Primary calls-to-action and buttons (hero, bordered CTAs, booking links) */
+        .hero-section a,
+        .container a.border,
+        .container a.bg-black,
+        .container button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Newsletter input/button in dark section */
+        section.bg-black input,
+        section.bg-black button {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Footer links and small UI text */
+        footer a,
+        footer .text-gray-600 {
+            font-family: 'Poppins', sans-serif;
+        }
+
         .hero-section {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            /* slideshow will render behind the content */
             height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Slideshow styles for hero */
+        #hero-slideshow {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #hero-slideshow img.hero-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            transform-origin: center;
+        }
+        #hero-slideshow img.hero-slide.visible {
+            opacity: 1;
+            animation: heroSlowZoom var(--hero-zoom-duration,14s) linear forwards;
+        }
+        @keyframes heroSlowZoom {
+            from { transform: scale(1); }
+            to   { transform: scale(1.06); }
         }
         
         .title-font {
@@ -97,7 +152,8 @@
 
     <!-- Hero Section -->
     <section class="hero-section flex items-end justify-center text-center text-white pt-16" style="height: 100vh;">
-        <div class="w-full flex flex-col items-center justify-end pb-24">
+        <div id="hero-slideshow"></div>
+        <div class="w-full flex flex-col items-center justify-end pb-24" style="position:relative; z-index:1;">
             <h1 class="title-font text-4xl md:text-6xl font-bold mb-6">WE BELIEVE</h1>
             <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">True luxury is defined by the precision of every detail, the time devoted to craftsmanship, and the personal bond we create with every individual we dress.</p>
             <a href="about-us.html" class="bg-black hover:bg-gray-800 text-white px-8 py-3 inline-block transition duration-300">
@@ -190,7 +246,11 @@
                     </div>
                     <!-- Slide 4 -->
                     <div class="snap-start shrink-0 w-[320px] md:w-[420px] lg:w-[520px] bg-white rounded shadow-lg overflow-hidden">
-                        <img src="files/slide4.jpg" alt="Slide 4" class="w-full h-[420px] lg:h-[520px] object-cover">
+                        <img src="files/WhatsApp Image 2025-10-01 at 16.25.27_09a24de2.jpg" alt="Slide 4" class="w-full h-[420px] lg:h-[520px] object-cover">
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="snap-start shrink-0 w-[320px] md:w-[420px] lg:w-[520px] bg-white rounded shadow-lg overflow-hidden">
+                        <img src="files/WhatsApp Image 2025-10-15 at 17.42.45_0b841cf8.jpg" alt="Slide 4" class="w-full h-[420px] lg:h-[520px] object-cover">
                     </div>
                 </div>
 
@@ -285,26 +345,33 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        mobileMenu.classList.remove('scale-95', 'opacity-0');
-                        mobileMenu.classList.add('scale-100', 'opacity-100');
-                    }, 10);
-                } else {
-                    mobileMenu.classList.remove('scale-100', 'opacity-100');
-                    mobileMenu.classList.add('scale-95', 'opacity-0');
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 300);
+        (function setupMobileMenu() {
+            function bind() {
+                try {
+                    const btn = document.getElementById('mobile-menu-button');
+                    const menu = document.getElementById('mobile-menu');
+                    if (!btn || !menu) return;
+                    if (btn.dataset.mobileMenuBound === 'true') return;
+                    btn.addEventListener('click', () => {
+                        if (menu.classList.contains('hidden')) {
+                            menu.classList.remove('hidden');
+                            setTimeout(() => {
+                                menu.classList.remove('scale-95', 'opacity-0');
+                                menu.classList.add('scale-100', 'opacity-100');
+                            }, 10);
+                        } else {
+                            menu.classList.remove('scale-100', 'opacity-100');
+                            menu.classList.add('scale-95', 'opacity-0');
+                            setTimeout(() => menu.classList.add('hidden'), 300);
+                        }
+                    });
+                    btn.dataset.mobileMenuBound = 'true';
+                } catch (e) {
+                    console.warn('mobile menu bind failed', e);
                 }
-            });
-        }
+            }
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
+        })();
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -363,6 +430,44 @@
                     slides[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
                 });
             }
+        })();
+    </script>
+    <script>
+        // Autonomous hero slideshow (no controls)
+        (function(){
+            const images = [
+                'files/WhatsApp Image 2025-10-01 at 16.25.23_40ddc807.jpg',
+                'files/WhatsApp Image 2025-10-15 at 17.42.46_f42baa96.jpg',
+                'files/WhatsApp Image 2025-09-25 at 09.39.03_c2c43b9d.jpg',
+            ];
+
+            const container = document.getElementById('hero-slideshow');
+            if (!container) return;
+
+            const slides = images.map((src, i) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Hero ' + (i+1);
+                img.className = 'hero-slide';
+                container.appendChild(img);
+                return img;
+            });
+
+            let idx = 0;
+            const base = 6000; // ms
+            const jitter = 1500;
+
+            if (slides.length) slides[0].classList.add('visible');
+
+            function next() {
+                slides[idx].classList.remove('visible');
+                idx = (idx + 1) % slides.length;
+                slides[idx].classList.add('visible');
+                const delay = Math.max(3000, base + (Math.random()*jitter - jitter/2));
+                setTimeout(next, delay);
+            }
+
+            setTimeout(next, base + (Math.random()*jitter - jitter/2));
         })();
     </script>
 </body>

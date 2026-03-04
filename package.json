@@ -1,13 +1,1 @@
-{
-  "name": "brielle-elan-site",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Brielle Élan website with Netlify Functions to send contact emails",
-  "dependencies": {
-    "@sendgrid/mail": "^8.1.6"
-  },
-  "scripts": {
-    "build": "echo 'no build step'",
-    "start": "netlify dev"
-  }
-}
+{}

@@ -8,9 +8,30 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 		body { font-family: 'Montserrat', sans-serif; }
 		.title-font { font-family: 'Playfair Display', serif; }
+
+		/* Poppins for nav, CTAs, form controls and footer links */
+		.nav-link, #mobile-menu a {
+			font-family: 'Poppins', sans-serif;
+		}
+
+		.container a.border,
+		.container a.bg-black,
+		.container button,
+		button {
+			font-family: 'Poppins', sans-serif;
+			font-weight: 600;
+		}
+
+		input, select, textarea, .container button {
+			font-family: 'Poppins', sans-serif;
+		}
+
+		footer a, footer .text-gray-600 {
+			font-family: 'Poppins', sans-serif;
+		}
 
 		/* Nav link underline animation (copied from index.html) */
 		.nav-link::after {
@@ -50,7 +71,7 @@
 	<header class="fixed w-full bg-white z-50 shadow-sm">
 		<div class="container mx-auto px-4 py-4 flex items-center">
 			<div class="flex items-center">
-				<img src="files/Logo.png" alt="Brielle Élan Logo" width="50" class="me-2">
+				<img src="files/IMG_9925.GIF" alt="Brielle Élan Logo" width="50" class="me-2">
 				<a href="index.html" class="title-font text-2xl font-bold">Brielle Élan</a>
 			</div>
 			
@@ -221,26 +242,33 @@ document.querySelectorAll('.faq-question').forEach(function(q) {
 </script>
 
 <script>
-		// Mobile menu toggle with animation
-		const mobileMenuButton = document.getElementById('mobile-menu-button');
-		const mobileMenu = document.getElementById('mobile-menu');
-		if (mobileMenuButton && mobileMenu) {
-			mobileMenuButton.addEventListener('click', () => {
-				if (mobileMenu.classList.contains('hidden')) {
-					mobileMenu.classList.remove('hidden');
-					setTimeout(() => {
-						mobileMenu.classList.remove('scale-95', 'opacity-0');
-						mobileMenu.classList.add('scale-100', 'opacity-100');
-					}, 10);
-				} else {
-					mobileMenu.classList.remove('scale-100', 'opacity-100');
-					mobileMenu.classList.add('scale-95', 'opacity-0');
-					setTimeout(() => {
-						mobileMenu.classList.add('hidden');
-					}, 300);
+		(function setupMobileMenu() {
+			function bind() {
+				try {
+					const btn = document.getElementById('mobile-menu-button');
+					const menu = document.getElementById('mobile-menu');
+					if (!btn || !menu) return;
+					if (btn.dataset.mobileMenuBound === 'true') return;
+					btn.addEventListener('click', () => {
+						if (menu.classList.contains('hidden')) {
+							menu.classList.remove('hidden');
+							setTimeout(() => {
+								menu.classList.remove('scale-95', 'opacity-0');
+								menu.classList.add('scale-100', 'opacity-100');
+							}, 10);
+						} else {
+							menu.classList.remove('scale-100', 'opacity-100');
+							menu.classList.add('scale-95', 'opacity-0');
+							setTimeout(() => menu.classList.add('hidden'), 300);
+						}
+					});
+					btn.dataset.mobileMenuBound = 'true';
+				} catch (e) {
+					console.warn('mobile menu bind failed', e);
 				}
-			});
-		}
+			}
+			if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
+		})();
 </script>
 </body>
 </html>
