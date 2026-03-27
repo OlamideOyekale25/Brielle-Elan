@@ -1,1 +1,7 @@
-{}
+{
+  "name": "brielle-elan-website",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.6"
+  }
+}
