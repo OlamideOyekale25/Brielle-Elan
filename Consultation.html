@@ -111,40 +111,45 @@
             <div class="md:col-span-2 bg-white p-8 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold mb-4">Book Your Appointment</h2>
                 <form id="booking-form" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" name="name" id="name" placeholder="Full name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
-                        <input type="email" name="email" id="email" placeholder="Email address" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                    <!-- Honeypot field - hidden from users, visible to bots -->
+                    <div style="position: absolute; left: -9999px;">
+                        <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="tel" name="phone" id="phone" placeholder="Phone number" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
-                        <select name="service" id="service" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                        <input type="text" name="name" id="name" placeholder="Full name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-black">
+                        <input type="email" name="email" id="email" placeholder="Email address" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-black">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="tel" name="phone" id="phone" placeholder="Phone number" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-black">
+                        <select name="service" id="service" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-black">
                             <option value="">Select service</option>
-                            <option>Bridal - Full Consultation</option>
-                            <option>Bridal - Quick Consultation</option>
-                            <option>Eveningwear / Couture</option>
-                            <option>Kids & Flower Girls</option>
+                            <option value="Bridal - Full Consultation">Bridal - Full Consultation</option>
+                            <option value="Bridal - Quick Consultation">Bridal - Quick Consultation</option>
+                            <option value="Eveningwear / Couture">Eveningwear / Couture</option>
+                            <option value="Kids & Flower Girls">Kids & Flower Girls</option>
                         </select>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="date" name="date" id="date" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
-                        <input type="time" name="time" id="time" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none">
+                        <input type="date" name="date" id="date" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-black">
+                        <input type="time" name="time" id="time" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-black">
                     </div>
 
-                    <textarea name="message" id="message" rows="5" placeholder="Tell us about your vision, fabric preferences, or event details" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none"></textarea>
+                    <textarea name="message" id="message" rows="5" placeholder="Tell us about your vision, fabric preferences, or event details" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-black"></textarea>
 
                     <div class="flex items-center space-x-2">
-                        <input type="checkbox" id="consent" required>
+                        <input type="checkbox" id="consent" name="consent" required>
                         <label for="consent" class="text-sm text-gray-600">I agree to be contacted about this appointment.</label>
                     </div>
 
                     <div class="flex items-center space-x-4">
-                        <button type="submit" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition">Request Appointment</button>
-                        <button type="reset" class="text-gray-700 px-4 py-2 rounded border">Reset</button>
+                        <button type="submit" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition disabled:bg-gray-400 disabled:cursor-not-allowed">Request Appointment</button>
+                        <button type="reset" class="text-gray-700 px-4 py-2 rounded border hover:bg-gray-50">Reset</button>
                     </div>
 
-                    <p id="form-success" class="text-green-600 mt-4 hidden">Thanks — your request was received. We'll contact you to confirm the appointment.</p>
+                    <p id="form-success" class="text-green-600 mt-4 hidden"></p>
                 </form>
             </div>
 
@@ -165,7 +170,7 @@
 
                 <div class="mt-6">
                     <h4 class="font-semibold">Contact</h4>
-                    <p class="text-gray-600">brielleelan@gmail.com<br>+234 707 894 8911</p>
+                    <p class="text-gray-600">Brielleelan@gmail.com<br>+234 707 894 8911</p>
                 </div>
             </aside>
         </div>
@@ -194,7 +199,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="title-font text-xl font-bold mb-4">BRIELLE ÉLAN</h3>
-                    <p class="text-gray-600 mb-4">Brielle Élan is a luxury women’s fashion brand inspired by the women who wear our creations.</p>
+                    <p class="text-gray-600 mb-4">Brielle Élan is a luxury women's fashion brand inspired by the women who wear our creations.</p>
                 </div>
                 <div>
                     <h4 class="font-bold mb-4">Shop</h4>
@@ -217,7 +222,7 @@
                         <p class="mb-2">123 Fashion Avenue</p>
                         <p class="mb-2">Ikorodu, Lagos</p>
                         <p class="mb-2">+234 707 894 8911</p>
-                        <p>brielleelan@gmail.com</p>
+                        <p>Brielleelan@gmail.com</p>
                     </address>
                 </div>
             </div>
@@ -228,6 +233,7 @@
     </footer>
 
     <script>
+        // Mobile menu setup
         (function setupMobileMenu() {
             function bind() {
                 try {
@@ -250,20 +256,129 @@
                     });
                     btn.dataset.mobileMenuBound = 'true';
                 } catch (e) {
-                    // swallow errors to avoid breaking other scripts
                     console.warn('mobile menu bind failed', e);
                 }
             }
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
         })();
 
-        // Simple client-side form handling (no backend)
-        document.getElementById('booking-form').addEventListener('submit', function(e) {
+        // Enhanced form handling with backend integration
+        document.getElementById('booking-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            // minimal validation already handled by required attributes
-            document.getElementById('form-success').classList.remove('hidden');
-            // Optionally reset the form
-            this.reset();
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('form-success');
+            const originalButtonText = submitButton.textContent;
+            
+            // Create error message element if it doesn't exist
+            let errorMessage = document.getElementById('form-error');
+            if (!errorMessage) {
+                errorMessage = document.createElement('p');
+                errorMessage.id = 'form-error';
+                errorMessage.className = 'text-red-600 mt-4 hidden';
+                successMessage.parentNode.insertBefore(errorMessage, successMessage);
+            }
+            
+            // Hide previous messages
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            
+            // Show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            
+            try {
+                // Collect form data
+                const formData = new FormData(this);
+                const data = {};
+                
+                // Convert FormData to regular object
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                
+                // Add honeypot field (empty)
+                data['bot-field'] = '';
+                
+                // Validate required fields client-side
+                const requiredFields = ['name', 'email', 'phone', 'service', 'date', 'time'];
+                const missingFields = requiredFields.filter(field => !data[field] || data[field].trim() === '');
+                
+                if (missingFields.length > 0) {
+                    throw new Error(`Please fill in all required fields: ${missingFields.join(', ')}`);
+                }
+                
+                // Basic email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    throw new Error('Please enter a valid email address');
+                }
+                
+                // Validate date is not in the past
+                const selectedDate = new Date(data.date);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                
+                if (selectedDate < today) {
+                    throw new Error('Please select a future date for your consultation');
+                }
+                
+                // Send to your Netlify function endpoint
+                const response = await fetch('/.netlify/functions/consultation-booking', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(result.error || 'Failed to submit consultation request');
+                }
+                
+                // Show success message
+                successMessage.textContent = "Thank you! Your consultation request has been submitted. We'll contact you within 24 hours to confirm your appointment.";
+                successMessage.classList.remove('hidden');
+                
+                // Reset form
+                this.reset();
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                errorMessage.textContent = error.message || 'Something went wrong. Please try again.';
+                errorMessage.classList.remove('hidden');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Restore button state
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        });
+
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+        });
+
+        // Real-time email validation
+        document.getElementById('email').addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                this.style.borderColor = '#ef4444';
+                this.style.boxShadow = '0 0 0 1px #ef4444';
+            } else {
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+            }
         });
     </script>
 </body>
