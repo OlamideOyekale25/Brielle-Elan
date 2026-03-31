@@ -1,24 +1,23 @@
-const sgMail = require('@sendgrid/mail');
+const { Resend } = require('resend');
 
-// Initialize SendGrid API key from environment (do NOT hard-code secrets)
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || '';
-const FROM_EMAIL = process.env.FROM_EMAIL || '';
+// Initialize Resend API key from environment
+const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev';
 const TO_EMAIL = process.env.TO_EMAIL || '';
 
-if (SENDGRID_API_KEY) {
-  sgMail.setApiKey(SENDGRID_API_KEY);
+let resend;
+if (RESEND_API_KEY) {
+  resend = new Resend(RESEND_API_KEY);
 }
 
 exports.handler = async function (event, context) {
-  // Add CORS headers
   const corsHeaders = {
-    'Access-Control-Allow-Origin': '*', // Change to your domain in production
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type': 'application/json'
   };
 
-  // Handle preflight OPTIONS request
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
@@ -27,7 +26,6 @@ exports.handler = async function (event, context) {
     };
   }
 
-  // Allow only POST
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -36,12 +34,12 @@ exports.handler = async function (event, context) {
     };
   }
 
-  if (!SENDGRID_API_KEY || !FROM_EMAIL) {
+  if (!RESEND_API_KEY || !FROM_EMAIL) {
     return {
       statusCode: 500,
       headers: corsHeaders,
       body: JSON.stringify({ 
-        error: 'SendGrid not configured. Set SENDGRID_API_KEY and FROM_EMAIL environment variables.' 
+        error: 'Resend not configured. Set RESEND_API_KEY and FROM_EMAIL environment variables.' 
       })
     };
   }
@@ -57,7 +55,6 @@ exports.handler = async function (event, context) {
     };
   }
 
-  // Honeypot check
   if (data['bot-field']) {
     return {
       statusCode: 200,
@@ -66,7 +63,6 @@ exports.handler = async function (event, context) {
     };
   }
 
-  // Validate required fields
   const requiredFields = ['name', 'email', 'phone', 'service', 'date', 'time'];
   const missingFields = requiredFields.filter(field => !data[field] || data[field].trim() === '');
   
@@ -81,7 +77,6 @@ exports.handler = async function (event, context) {
     };
   }
 
-  // Extract and validate form data
   const name = data.name.trim();
   const email = data.email.trim();
   const phone = data.phone.trim();
@@ -90,7 +85,6 @@ exports.handler = async function (event, context) {
   const time = data.time.trim();
   const message = data.message ? data.message.trim() : '';
 
-  // Basic email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return {
@@ -100,7 +94,6 @@ exports.handler = async function (event, context) {
     };
   }
 
-  // Format date for better readability
   let formattedDate = date;
   try {
     const dateObj = new Date(date);
@@ -110,11 +103,8 @@ exports.handler = async function (event, context) {
       month: 'long',
       day: 'numeric'
     });
-  } catch (e) {
-    // Keep original date if parsing fails
-  }
+  } catch (e) {}
 
-  // Format time for better readability
   let formattedTime = time;
   try {
     const [hours, minutes] = time.split(':');
@@ -125,13 +115,9 @@ exports.handler = async function (event, context) {
       minute: '2-digit',
       hour12: true
     });
-  } catch (e) {
-    // Keep original time if parsing fails
-  }
+  } catch (e) {}
 
-  // =================================================================
-  // EMAIL 1: Notification to YOU (the business owner)
-  // =================================================================
+  // EMAIL 1: Notification to YOU (business owner)
   const adminHtml = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <h2 style="color: #333; border-bottom: 2px solid #000; padding-bottom: 10px;">
@@ -167,44 +153,13 @@ exports.handler = async function (event, context) {
     </div>
   `;
 
-  const adminTextContent = `
-NEW CONSULTATION BOOKING REQUEST
-
-Client Information:
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-
-Appointment Details:
-Service: ${service}
-Requested Date: ${formattedDate}
-Requested Time: ${formattedTime}
-
-${message ? `Additional Message:\n${message}\n` : ''}
-
----
-This booking request was submitted through the Brielle Élan consultation form.
-  `;
-
-  const adminEmail = {
-    to: TO_EMAIL,
-    from: FROM_EMAIL,
-    subject: `[Consultation Request] ${name} - ${service}`,
-    text: adminTextContent,
-    html: adminHtml
-  };
-
-  // =================================================================
   // EMAIL 2: Confirmation to CUSTOMER
-  // =================================================================
   const customerHtml = `
     <div style="font-family: 'Georgia', serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
-      <!-- Header with brand -->
       <div style="background: #000000; padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 28px; letter-spacing: 2px;">BRIELLE ÉLAN</h1>
       </div>
 
-      <!-- Main content -->
       <div style="padding: 40px 30px;">
         <h2 style="color: #000000; font-size: 24px; margin-bottom: 20px;">Thank You for Your Booking Request!</h2>
         
@@ -216,7 +171,6 @@ This booking request was submitted through the Brielle Élan consultation form.
           We have received your consultation request and are excited to meet with you! Your appointment has been scheduled for:
         </p>
 
-        <!-- Appointment details box -->
         <div style="background: #f8f8f8; border-left: 4px solid #000000; padding: 25px; margin: 30px 0;">
           <p style="margin: 0 0 15px 0; color: #333;">
             <strong style="color: #000;">Service:</strong><br>
@@ -266,7 +220,6 @@ This booking request was submitted through the Brielle Élan consultation form.
         </p>
       </div>
 
-      <!-- Footer -->
       <div style="background: #f5f5f5; padding: 30px; text-align: center; border-top: 1px solid #e0e0e0;">
         <p style="color: #666; font-size: 12px; margin: 0 0 10px 0;">
           <strong>Please do not reply to this email.</strong><br>
@@ -280,64 +233,26 @@ This booking request was submitted through the Brielle Élan consultation form.
     </div>
   `;
 
-  const customerTextContent = `
-BRIELLE ÉLAN
-Consultation Booking Confirmation
-
-Dear ${name},
-
-Thank you for your booking request!
-
-We have received your consultation request and are excited to meet with you. Your appointment has been scheduled for:
-
-Service: ${service}
-Date: ${formattedDate}
-Time: ${formattedTime}
-
-⏳ PLEASE NOTE: This appointment is pending confirmation. We will contact you within 24 hours to confirm availability and share the location details.
-
-WHAT TO BRING:
-- Inspiration images or mood boards
-- Fabric swatches (if you have any)
-- Your vision and ideas
-
-If you have any questions or need to reschedule, please contact us at:
-Email: Brielleelan@gmail.com
-Phone: +234 707 894 8911
-
-We look forward to creating something beautiful with you!
-
-Warm regards,
-The Brielle Élan Team
-
----
-PLEASE DO NOT REPLY TO THIS EMAIL.
-This is an automated confirmation message.
-
-© 2025 Brielle Élan. All rights reserved.
-123 Fashion Avenue, Ikorodu, Lagos
-  `;
-
-  const customerEmail = {
-    to: email, // Customer's email
-    from: FROM_EMAIL,
-    replyTo: 'Brielleelan@gmail.com', // Customer replies go to your real email
-    subject: `Your Consultation is Scheduled - ${formattedDate}`,
-    text: customerTextContent,
-    html: customerHtml
-  };
-
-  // =================================================================
-  // SEND BOTH EMAILS
-  // =================================================================
   try {
-    // Send both emails at the same time
+    // Send both emails
     await Promise.all([
-      sgMail.send(adminEmail),    // Email to you
-      sgMail.send(customerEmail)   // Email to customer
+      // Email to you (business owner)
+      resend.emails.send({
+        from: FROM_EMAIL,
+        to: TO_EMAIL,
+        subject: `[Consultation Request] ${name} - ${service}`,
+        html: adminHtml
+      }),
+      // Email to customer
+      resend.emails.send({
+        from: FROM_EMAIL,
+        to: email,
+        replyTo: 'Brielleelan@gmail.com',
+        subject: `Your Consultation is Scheduled - ${formattedDate}`,
+        html: customerHtml
+      })
     ]);
     
-    // Log successful booking (helpful for debugging)
     console.log(`Consultation booking sent for ${name} (${email}) - ${service} on ${date} at ${time}`);
     
     return {
@@ -349,16 +264,14 @@ This is an automated confirmation message.
       })
     };
   } catch (error) {
-    console.error('SendGrid error:', error);
-    const errMsg = (error && error.response && error.response.body) ? 
-      error.response.body : error.message;
+    console.error('Resend error:', error);
     
     return {
       statusCode: 502,
       headers: corsHeaders,
       body: JSON.stringify({ 
         error: 'Failed to send consultation request', 
-        detail: errMsg 
+        detail: error.message
       })
     };
   }
