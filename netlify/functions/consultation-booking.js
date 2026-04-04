@@ -234,26 +234,27 @@ exports.handler = async function (event, context) {
   `;
 
   try {
-    // Send both emails
-    await Promise.all([
-      // Email to you (business owner)
-      resend.emails.send({
-        from: FROM_EMAIL,
-        to: TO_EMAIL,
-        subject: `[Consultation Request] ${name} - ${service}`,
-        html: adminHtml
-      }),
-      // Email to customer
-      resend.emails.send({
-        from: FROM_EMAIL,
-        to: email,
-        replyTo: 'Brielleelan@gmail.com',
-        subject: `Your Consultation is Scheduled - ${formattedDate}`,
-        html: customerHtml
-      })
-    ]);
+    // Send emails SEPARATELY with better error handling
+    console.log(`Attempting to send admin email to ${TO_EMAIL}`);
+    const adminResult = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: TO_EMAIL,
+      subject: `[Consultation Request] ${name} - ${service}`,
+      html: adminHtml
+    });
+    console.log('Admin email sent successfully:', adminResult);
+
+    console.log(`Attempting to send customer email to ${email}`);
+    const customerResult = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: email,
+      replyTo: 'Brielleelan@gmail.com',
+      subject: `Your Consultation is Scheduled - ${formattedDate}`,
+      html: customerHtml
+    });
+    console.log('Customer email sent successfully:', customerResult);
     
-    console.log(`Consultation booking sent for ${name} (${email}) - ${service} on ${date} at ${time}`);
+    console.log(`Both emails sent successfully for ${name} (${email}) - ${service} on ${date} at ${time}`);
     
     return {
       statusCode: 200,
@@ -265,6 +266,7 @@ exports.handler = async function (event, context) {
     };
   } catch (error) {
     console.error('Resend error:', error);
+    console.error('Error details:', JSON.stringify(error, null, 2));
     
     return {
       statusCode: 502,
